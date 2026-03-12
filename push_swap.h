@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/02/20 17:05:08 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/02/27 15:46:30 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@
 # include <stdlib.h>
 # include <string.h>
 
-//Structure of doubly linked list s_structure t_tpye
+//Structure of doubly linked list s_structure t_type
 typedef struct s_node
 {
-	void			*data;
+	int 			data;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
