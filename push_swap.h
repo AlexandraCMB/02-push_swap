@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/02/27 15:46:30 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/14 17:19:30 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,15 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
+
+//PUSH_SWAP.C
+t_node *createNode(int data);
+t_node *insert_at_beginning(t_node **head, int data);
+t_node *init_stack(int argc, char **argv);
+int print_stacks(t_node *stack_a, t_node *stack_b);
+
+//OPERATIONS.C
+void	sa(t_node **stack);
+
 
 #endif
