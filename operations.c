@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/15 19:40:30 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/15 19:42:18 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void op_pb(t_node **stack_a, t_node **stack_b)
 	//ONE NODE
 	if((*stack_a)->next == (*stack_a))
 	{
-		// (*stack_a)=NULL;
+		// (*stack_a)=NULL;l
 	}
 	//>2 NODES	
 	else
