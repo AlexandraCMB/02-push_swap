@@ -6,52 +6,82 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/14 18:15:24 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/15 19:40:30 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_node **stack)
+/**
+ * sa expain ops here
+ */
+void	op_sa(t_node **stack)
 {
-	if(!*stack)
+	if(!*stack || !((*stack)->next))
 		return;
-	// printf("s0: head->data %d\n", (*stack)->data);
-	//printf("s0.1: head->next->data %d\n", (*stack)->next->data);
-
-	t_node *xx1 = (*stack)->prev->prev;
-	t_node *x1 = (*stack)->prev;
-	t_node *n1 = (*stack);
-	t_node *n2 = (*stack)->next;
-	t_node *x2 = (*stack)->next->next;
-	t_node *xx2 = (*stack)->next->next->next;
-
+	if((*stack)->next == (*stack)->prev)
+	{
+		(*stack) = (*stack)->prev;
+		write(1, "sa\n", 3);
+		return;
+	}
 	(*stack)->next = (*stack)->next->next;
 	(*stack)->next->prev->prev = (*stack) ->prev;
-
-
 	(*stack)->prev->next = (*stack)->next->prev;
 	(*stack)->next->prev = (*stack);
-
-
-
 	(*stack)->prev->next->next = (*stack);
 	(*stack)->prev = (*stack)->prev->next;
-
-	
 	(*stack) = (*stack)->prev;
 	write(1, "sa\n", 3);
 	return;
-
 }
 
 
+void	op_sb(t_node **stack)
+{
+	if(!*stack || !((*stack)->next))
+		return;
+	if((*stack)->next == (*stack)->prev)
+	{
+		(*stack) = (*stack)->prev;
+		write(1, "sb\n", 3);
+		return;
+	}
 
-// sa (swap a): Swap the first 2 elements at the top of stack a.
-// Do nothing if there is only one element or none.
-// sb (swap b): Swap the first 2 elements at the top of stack b.
-// Do nothing if there is only one element or none.
-// ss : sa and sb at the same time.
+	(*stack)->next = (*stack)->next->next;
+	(*stack)->next->prev->prev = (*stack) ->prev;
+	(*stack)->prev->next = (*stack)->next->prev;
+	(*stack)->next->prev = (*stack);
+	(*stack)->prev->next->next = (*stack);
+	(*stack)->prev = (*stack)->prev->next;
+	(*stack) = (*stack)->prev;
+	write(1, "sb\n", 3);
+	return;
+}
+
+void op_pb(t_node **stack_a, t_node **stack_b)
+{
+	t_node *removed;
+	
+	removed = (*stack_a);
+	(*stack_a) = (*stack_a)->next;
+	//ONE NODE
+	if((*stack_a)->next == (*stack_a))
+	{
+		// (*stack_a)=NULL;
+	}
+	//>2 NODES	
+	else
+	{
+	(*stack_a)->prev->prev->next = (*stack_a);
+	(*stack_a)->prev = (*stack_a)->prev->prev;
+	}
+	insert_at_beginning(stack_b, removed);
+
+	write(1, "pb\n", 3);
+	return;
+}
+
 // pa (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
 // pb (push b): Take the first element at the top of a and put it at the top of b.
