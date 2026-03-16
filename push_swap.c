@@ -12,88 +12,61 @@
 
 #include "push_swap.h"
 
-t_node *createNode(int data) 
-{
-	t_node* newNode = (t_node*)malloc(sizeof(t_node));
-	if (!newNode)
-		return (NULL);
-	newNode->data = data;
-	newNode->next=NULL;
-	newNode->prev=NULL;
-	return (newNode);
-}
-
-t_node *insert_at_back(t_node **head, int data)
-{
-	t_node *newNode = createNode(data);
-	if(!(*head))
-	{
-		newNode->next = newNode;
-		newNode->prev = newNode;
-		(*head) = newNode;
-	}
-	else
-	{
-		t_node* tail = (*head)->prev;
-		tail->next =  newNode;
-		(*head)->prev = newNode;
-		newNode->next = (*head);
-		newNode->prev = tail;
-		tail = newNode;
-	}
-	return (*head);
-}
-
-t_node *init_stack(int argc, char **argv)
-{
-	int i = 1;
-	t_node *stack;
-	stack = NULL;
-	if(argc > 1)
-	{
-		while(i < argc)
-		{
-			stack = insert_at_back(&stack ,atoi(argv[i]));
-			i++;
-		}
-	}
-	return(stack);
-}
 
 int print_stacks(t_node *stack_a, t_node *stack_b)
 {
-	// if(stack_a->prev)
-	// 	stack_a=stack_a->prev;
-	// if(stack_b->prev)
-	// 	stack_b=stack_b->prev;
 	t_node *tmp_a = stack_a;
 	t_node *tmp_b = stack_b;
-	int first_pass = 1;
 
-	if (!stack_a && !stack_b)
+	int a = stack_len(stack_a);
+	int b = stack_len(stack_b);
+	if (a==0 && b ==0)
 	{
-		printf("A: (empty)  B: (empty)\n");
+		printf("A: (empty)	 	B: (empty)\n");
 		return (0);
 	}
-	printf("	Stack A	 |   Stack B\n");
+	printf("	Stack A	| Stack B\n");
 	printf("-------------------------------\n");
 
-	while (tmp_a && (first_pass || tmp_a != stack_a))
+	while ((a + b) > 0)
 	{
-	first_pass = 0;
-	printf("	%d	", tmp_a->data);
-	tmp_a = tmp_a->next;
-	if (tmp_b)
-	{
-		printf(" |	%d\n", tmp_b->data);
-		tmp_b = tmp_b->next;
-		if (tmp_b == stack_b)
-			tmp_b = NULL;
-	}
-	else
-		printf(" |	-\n");
+		if(a == 0 && b > 0)
+		{
+			printf("	-	|	%d\n", tmp_b->data);
+			tmp_b=tmp_b->next;
+			b--;
+		}
+		if(a > 0 && b==0)
+		{
+			printf("	%d	|	-\n", tmp_a->data);
+			tmp_a=tmp_a->next;
+			a--;
+		}
+		if(a > 0 && b > 0)
+		{
+			printf("	%d	|	%d\n", tmp_a->data, tmp_b->data);
+			tmp_a=tmp_a->next;
+			tmp_b=tmp_b->next;
+			a--;
+			b--;
+		}
 	}
 	return (1);
+}
+
+int stack_len(t_node *stack)
+{
+	int i = 1;
+	t_node *tmp;
+	tmp = stack;
+	if(!stack)
+		return 0;
+	while(tmp->next != stack)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return i;
 }
 
 int main (int argc, char **argv)
@@ -101,14 +74,17 @@ int main (int argc, char **argv)
 	int i;
 	t_node *stack_a;
 	t_node *stack_b;
+	// t_node *x1;
+
 	
 	i = 1;
 	stack_a = init_stack(argc, argv);
-	stack_b = NULL;
+	stack_b = init_stack(argc, argv);
+	//x1 = stack_a;
 	printf("Before:\n");
 	print_stacks(stack_a, stack_b);
 	//printf("Operation: ");
-	//op_pb(&stack_a, &stack_b);
+	op_ss(&stack_a, &stack_b);
 	printf("\nAfter:\n");
 	print_stacks(stack_a, stack_b);
 	return (1);

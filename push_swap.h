@@ -40,18 +40,29 @@ typedef struct s_node
 }					t_node;
 
 //PUSH_SWAP.C
+int stack_len(t_node *stack);
+int print_stacks(t_node *stack_a, t_node *stack_b);
+
+//OPERATIONS.C
+void	op_sa(t_node **stack, int checker);
+void	op_sb(t_node **stack, int checker);
+void	op_ss(t_node **stack_a,t_node **stack_b);
+
+void	op_pa(t_node **stack_a, t_node **stack_b);
+void	op_pb(t_node **stack_a, t_node **stack_b);
+
+void op_ra(t_node **stack, int checker);
+void op_rb(t_node **stack, int checker);
+void op_rr(t_node **stack_a,t_node **stack_b);
+
+void op_rra(t_node **stack, int checker);
+void op_rrb(t_node **stack, int checker);
+void op_rrr(t_node **stack_a,t_node **stack_b);
+
+//LINKED LIST UTILITES
 t_node *createNode(int data);
 t_node *insert_at_back(t_node **head, int data);
 t_node *init_stack(int argc, char **argv);
-int print_stacks(t_node *stack_a, t_node *stack_b);
-void end_of_stack(t_node *stack);
-
-//OPERATIONS.C
-void	op_sa(t_node **stack);
-void	op_sb(t_node **stack);
-void op_pb(t_node **stack_a, t_node **stack_b);
-
-//OPERATION UTILITES
 t_node *insert_at_beginning(t_node **head, t_node *newNode);
 
 #endif
