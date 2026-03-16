@@ -35,6 +35,7 @@
 typedef struct s_node
 {
 	int 			data;
+	size_t			idx;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -43,18 +44,19 @@ typedef struct s_node
 int stack_len(t_node *stack);
 int print_stacks(t_node *stack_a, t_node *stack_b);
 
-//OPERATIONS.C
+// /OPERATIONS/*.c
+//swaps
 void	op_sa(t_node **stack, int checker);
 void	op_sb(t_node **stack, int checker);
 void	op_ss(t_node **stack_a,t_node **stack_b);
-
+//pushes
 void	op_pa(t_node **stack_a, t_node **stack_b);
 void	op_pb(t_node **stack_a, t_node **stack_b);
-
+//rotates up
 void op_ra(t_node **stack, int checker);
 void op_rb(t_node **stack, int checker);
 void op_rr(t_node **stack_a,t_node **stack_b);
-
+//rotates down
 void op_rra(t_node **stack, int checker);
 void op_rrb(t_node **stack, int checker);
 void op_rrr(t_node **stack_a,t_node **stack_b);

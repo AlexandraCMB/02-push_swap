@@ -73,10 +73,7 @@ t_node *init_stack(int argc, char **argv)
 	if(argc > 1)
 	{
 		while(i < argc)
-		{
-			stack = insert_at_back(&stack ,atoi(argv[i]));
-			i++;
-		}
+			stack = insert_at_back(&stack ,atoi(argv[i++]));
 	}
 	return(stack);
 }
