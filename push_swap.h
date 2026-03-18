@@ -40,7 +40,7 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
-//PUSH_SWAP.C
+//MAIN.C
 int stack_len(t_node *stack);
 int print_stacks(t_node *stack_a, t_node *stack_b);
 
@@ -61,10 +61,21 @@ void op_rra(t_node **stack, int checker);
 void op_rrb(t_node **stack, int checker);
 void op_rrr(t_node **stack_a,t_node **stack_b);
 
-//LINKED LIST UTILITES
-t_node *createNode(int data);
+//UTILITES
+//linked_list.c
+t_node *create_node(int data);
 t_node *insert_at_back(t_node **head, int data);
 t_node *init_stack(int argc, char **argv);
-t_node *insert_at_beginning(t_node **head, t_node *newNode);
+t_node *insert_at_beginning(t_node **head, t_node *newnode);
+//assigning_indices
+void create_indices(t_node *stack);
+void assign_indices(t_node *stack, int *arr, int len);
+void bubble_sort(int *arr, int len);
+int in_order(cint *arr, int len);
+
+
+
+
+
 
 #endif

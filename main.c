@@ -12,50 +12,38 @@
 
 #include "push_swap.h"
 
+//printing stacks
 int main (int argc, char **argv)
 {
 	int i;
 	t_node *stack_a;
 	t_node *stack_b;
-	// t_node *x1;
 
 	i = 1;
-
 	stack_a = init_stack(argc, argv);
-
-	int *arr = (int *)malloc(stack_len(stack_a) * sizeof(int));
-	
-	t_node *tmp;
-	tmp = stack_a;
-	
-	int i = 0;
-	while(tmp->next != stack)
-	{
-		tmp = tmp->next;
-		arr[i++];
-	}
-
-
-	
-
-
-
-
-
 	stack_b = NULL;
 	//x1 = stack_a;
 	printf("Before:\n");
 	print_stacks(stack_a, stack_b);
+	create_indices(stack_a);
 	//printf("Operation: ");
-	op_ss(&stack_a, &stack_b);
-	printf("\nAfter:\n");
-	print_stacks(stack_a, stack_b);
+	// op_ss(&stack_a, &stack_b);
+	// printf("\nAfter:\n");
+	// print_stacks(stack_a, stack_b);
 	return (1);
 }
 
+//for indices checking
+int main (int argc, char **argv)
+{
+	int i;
+	t_node *stack_a;
 
-
-
+	i = 1;
+	stack_a = init_stack(argc, argv);
+	create_indices(stack_a);
+	return (1);
+}
 
 int stack_len(t_node *stack)
 {
