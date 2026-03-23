@@ -15,26 +15,25 @@
 //printing stacks
 int main (int argc, char **argv)
 {
-	int i;
 	t_node *stack_a;
 	t_node *stack_b;
 
-	i = 1;
 	stack_a = init_stack(argc, argv);
 	stack_b = NULL;
-	//x1 = stack_a;
 	printf("Before:\n");
 	print_stacks(stack_a, stack_b);
 	create_indices(stack_a);
-	//printf("Operation: ");
-	// op_ss(&stack_a, &stack_b);
-	// printf("\nAfter:\n");
-	// print_stacks(stack_a, stack_b);
+	printf("Operation: ");
+	op_ss(&stack_a, &stack_b);
+	printf("\nAfter:\n");
+	print_stacks(stack_a, stack_b);
+	free(stack_a);
+	free(stack_b);
 	return (1);
 }
 
 //for indices checking
-int main (int argc, char **argv)
+/* int main (int argc, char **argv)
 {
 	int i;
 	t_node *stack_a;
@@ -43,7 +42,7 @@ int main (int argc, char **argv)
 	stack_a = init_stack(argc, argv);
 	create_indices(stack_a);
 	return (1);
-}
+} */
 
 int stack_len(t_node *stack)
 {

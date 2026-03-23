@@ -16,12 +16,10 @@ void	create_indices(t_node *stack)
 {
 	int	len;
 	int	i;
-	int	x;
 	int	*arr;
 
 	len = stack_len(stack);
 	i = 0;
-	x = 0;
 	arr = (int *)malloc(len * sizeof(int));
 	if (!arr)
 		return ;

@@ -71,7 +71,7 @@ t_node *insert_at_beginning(t_node **head, t_node *newnode);
 void create_indices(t_node *stack);
 void assign_indices(t_node *stack, int *arr, int len);
 void bubble_sort(int *arr, int len);
-int in_order(cint *arr, int len);
+int in_order(int *arr, int len);
 
 
 
