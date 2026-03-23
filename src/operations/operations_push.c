@@ -10,48 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-// ra (rotate a): Shift up all elements of stack a by 1.
-void	op_ra(t_node **stack, int checker)
+void	op_pa(t_node **stack_a, t_node **stack_b)
 {
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->next;
-	if (checker)
-		write(1, "ra\n", 3);
+	t_node	*removed;
+
+	removed = (*stack_b);
+	if (removed->next == removed)
+		(*stack_b) = NULL;
+	else
+	{
+		removed->prev->next = removed->next;
+		removed->next->prev = removed->prev;
+		(*stack_b) = removed->next;
+	}
+	insert_at_beginning(stack_a, removed);
+	write(1, "pa\n", 3);
 	return ;
 }
 
-// rb (rotate b): Shift up all elements of stack b by 1.
-void	op_rb(t_node **stack, int checker)
+void	op_pb(t_node **stack_a, t_node **stack_b)
 {
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->next;
-	if (checker)
-		write(1, "rb\n", 3);
-	return ;
-}
+	t_node	*removed;
 
-// rra (reverse rotate a): Shift down all elements of stack a by 1.
-void	op_rra(t_node **stack, int checker)
-{
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->prev;
-	if (checker)
-		write(1, "rra\n", 4);
-	return ;
-}
-
-// rrb (reverse rotate b): Shift down all elements of stack b by 1.
-void	op_rrb(t_node **stack, int checker)
-{
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->prev;
-	if (checker)
-		write(1, "rrb\n", 4);
+	removed = (*stack_a);
+	if (removed->next == removed)
+		(*stack_a) = NULL;
+	else
+	{
+		removed->prev->next = removed->next;
+		removed->next->prev = removed->prev;
+		(*stack_a) = removed->next;
+	}
+	insert_at_beginning(stack_b, removed);
+	write(1, "pb\n", 3);
 	return ;
 }

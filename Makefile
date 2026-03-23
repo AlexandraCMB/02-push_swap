@@ -1,35 +1,33 @@
-NAME		= push_swap
+CC      = gcc
+CFLAGS  = -Wall -Wextra -Werror -Iinclude
+RM      = rm -rf
+NAME    = push_swap
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3 -O0
-AR			= ar rcs
-RM			= rm -f
-INCLUDE		= -I.
+SRC     = src/main.c \
+          src/operations/operations_swap.c \
+          src/operations/operations_rot.c \
+          src/operations/operations_double.c \
+          src/operations/operations_push.c \
+          src/utilities/linked_list.c \
+          src/utilities/assigning_indices.c
 
-SRC			= main.c \
-			  operations/operations_double.c \
-			  operations/operations_push.c \
-			  operations/operations_rot.c \
-			  operations/operations_swap.c \
-			  utilities/assigning_indices.c \
-			  utilities/linked_list.c
-
-OBJ	= $(SRC:.c=.o)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+OBJ     = $(SRC:src/%.c=objs/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -o $@
+
+objs/%.o: src/%.c include/push_swap.h
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) objs
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
