@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 14:42:09 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 15:02:58 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ void assign_indices(t_node *stack, int *arr, int len);
 void bubble_sort(int *arr, int len);
 int in_order(int *arr, int len);
 
-
+//manual_sorting.c
+void sort(t_ps *data);
+void sort_three(t_ps *data);
 
 
 

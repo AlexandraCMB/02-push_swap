@@ -6,22 +6,52 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 11:36:58 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 15:10:39 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void sort(t_node **stack)
-{
-	int len;
+#include "push_swap.h"
 
-	len = stack_len(*stack);
+void sort(t_ps *data)
+{
+	size_t len = data->stack_a->size;
 	if (len == 2)
-		op_sa(stack_a,1);
+	{
+		if (data->stack_a->head->data > data->stack_a->head->next->data)
+			swap_a(data);
+	}
 	else if (len == 3)
-		sort_three(stack_a);
+		sort_three(data);
 	else if (len == 4)
-		sort_four(stack_a, stack_b);
+		printf("Do sort_four(data) here\n");
 	else if (len == 5)
-		sort_five(stack_a, stack_b);
-	return ;
+		printf("Do sort_five(data) here\n");
+	else
+		printf("Do main_algo(data) here\n");
+}
+
+void sort_three(t_ps *data)
+{
+	int first = data->stack_a->head->data;
+	int second = data->stack_a->head->next->data;
+	int third = data->stack_a->head->next->next->data;
+
+	if (first > second && second < third && first < third)
+		swap_a(data);
+
+	else if (first < second && second > third && first > third)
+		rev_rot_a(data);
+	else if (first > second && second < third && first > third)
+		rot_a(data);
+	else if (first < second && second > third && first < third)
+	{
+		rev_rot_a(data);
+		swap_a(data);
+	}
+		else if (first > second && second > third)
+	{
+		swap_a(data);
+		rev_rot_a(data);
+	}
+
 }

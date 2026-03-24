@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 14:42:41 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 15:03:22 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int main (int argc, char **argv)
 	create_indices(data);
 	//DEMO OPERATIONS
 	
-	swap_a(data);
-	push_b(data);
-
+	sort(data);
 	//
 	printf("\nAfter:\n");
 	print_stacks(data);
