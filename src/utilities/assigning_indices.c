@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   assigning_indices.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 16:46:23 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/15 19:39:01 by abrunjes         ###   ########.fr       */
+/*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
+/*   Updated: 2026/03/24 14:16:02 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	create_indices(t_node *stack)
+void	create_indices(t_ps *data)
 {
 	int	len;
 	int	i;
 	int	*arr;
+	t_node *tmp;
 
-	len = stack_len(stack);
+	len = data->stack_a->size;
 	i = 0;
 	arr = (int *)malloc(len * sizeof(int));
 	if (!arr)
 		return ;
+	tmp = data->stack_a->head;
 	while (i < len)
 	{
-		arr[i] = stack->data;
-		stack = stack->next;
+		arr[i] = tmp->data;
+		tmp = tmp->next;
 		i++;
 	}
 	bubble_sort(arr, len);
-	assign_indices(stack, arr, len);
+	assign_indices(tmp, arr, len);
 	free(arr);
 	return ;
 }
@@ -47,12 +49,12 @@ void	assign_indices(t_node *stack, int *arr, int len)
 	while (head != stack || entry == 1)
 	{
 		entry = 0;
-		while (x <= len)
+		while (x < len)
 		{
 			if (arr[x] == head->data)
 			{
 				head->idx = x;
-				printf("head[data, idx]->[%d, %zu] \n", head->data, head->idx);
+				printf("Assigned index %ld to value %d\n", head->idx, head->data);
 				break ;
 			}
 			x++;
@@ -94,7 +96,7 @@ int	in_order(int *arr, int len)
 	int	i;
 
 	i = len - 2;
-	while (arr[i] && arr[i] <= arr[i + 1] && i >= 0)
+	while (i >= 0 && arr[i] <= arr[i + 1])
 		i--;
 	return (i);
 }

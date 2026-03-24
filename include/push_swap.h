@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/15 19:35:41 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:42:09 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,41 +34,59 @@
 //Structure of doubly linked list s_structure t_type
 typedef struct s_node
 {
-	int 			data;
+	int			data;
 	size_t			idx;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
 
+typedef struct s_stack
+{
+	t_node			*head;
+	int 			size;
+}					t_stack;
+
+typedef struct s_ps
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+}			t_ps;
+
 //MAIN.C
 int stack_len(t_node *stack);
-int print_stacks(t_node *stack_a, t_node *stack_b);
+int print_stacks(t_ps *data);
 
 // /OPERATIONS/*.c
 //swaps
-void	op_sa(t_node **stack, int checker);
-void	op_sb(t_node **stack, int checker);
-void	op_ss(t_node **stack_a,t_node **stack_b);
+void	swap(t_node **stack);
+void	swap_a(t_ps *data);
+void	swap_b(t_ps *data);
+void	swap_both(t_ps *data);
 //pushes
-void	op_pa(t_node **stack_a, t_node **stack_b);
-void	op_pb(t_node **stack_a, t_node **stack_b);
+void	push(t_node **stack_from, t_node **stack_to);
+void	push_a(t_ps *data);
+void	push_b(t_ps *data);
 //rotates up
-void op_ra(t_node **stack, int checker);
-void op_rb(t_node **stack, int checker);
-void op_rr(t_node **stack_a,t_node **stack_b);
+void	rot(t_node **stack);
+void	rot_a(t_ps *data);
+void	rot_b(t_ps *data);
+void	rot_both(t_ps *data);
 //rotates down
-void op_rra(t_node **stack, int checker);
-void op_rrb(t_node **stack, int checker);
-void op_rrr(t_node **stack_a,t_node **stack_b);
+void	rev_rot(t_node **stack);
+void	rev_rot_a(t_ps *data);
+void	rev_rot_b(t_ps *data);
+void	rot_both(t_ps *data);
 
 //UTILITES
 //linked_list.c
 t_node *create_node(int data);
 t_node *insert_at_back(t_node **head, int data);
-t_node *init_stack(int argc, char **argv);
+t_node	*init_stack(int argc, char **argv);
 t_node *insert_at_beginning(t_node **head, t_node *newnode);
+void	free_nodes(t_stack *stack);
+
 //assigning_indices
-void create_indices(t_node *stack);
+void create_indices(t_ps *data);
 void assign_indices(t_node *stack, int *arr, int len);
 void bubble_sort(int *arr, int len);
 int in_order(int *arr, int len);

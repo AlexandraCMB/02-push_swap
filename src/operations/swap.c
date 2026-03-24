@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/15 19:42:18 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:24:32 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 /**
  * sa expain ops here
  */
-void	op_sa(t_node **stack, int checker)
+//checker is 1 if sa or sb not s
+void	swap(t_node **stack)
 {
+
 	if (!*stack || !((*stack)->next))
 		return ;
 	if ((*stack)->next == (*stack)->prev)
 	{
 		(*stack) = (*stack)->prev;
-		write(1, "sa\n", 3);
 		return ;
 	}
 	(*stack)->next = (*stack)->next->next;
@@ -32,29 +33,24 @@ void	op_sa(t_node **stack, int checker)
 	(*stack)->prev->next->next = (*stack);
 	(*stack)->prev = (*stack)->prev->next;
 	(*stack) = (*stack)->prev;
-	if (checker)
-		write(1, "sa\n", 3);
 	return ;
 }
 
-void	op_sb(t_node **stack, int checker)
+void swap_a(t_ps *data)
 {
-	if (!*stack || !((*stack)->next))
-		return ;
-	if ((*stack)->next == (*stack)->prev)
-	{
-		(*stack) = (*stack)->prev;
-		write(1, "sb\n", 3);
-		return ;
-	}
-	(*stack)->next = (*stack)->next->next;
-	(*stack)->next->prev->prev = (*stack)->prev;
-	(*stack)->prev->next = (*stack)->next->prev;
-	(*stack)->next->prev = (*stack);
-	(*stack)->prev->next->next = (*stack);
-	(*stack)->prev = (*stack)->prev->next;
-	(*stack) = (*stack)->prev;
-	if (checker)
-		write(1, "sb\n", 3);
+	swap(&(data->stack_a->head));
+	return ;
+}
+
+void swap_b(t_ps *data)
+{
+	swap(&(data->stack_b->head));
+	return ;
+}
+
+void swap_both(t_ps *data)
+{
+	swap_a(data);
+	swap_b(data);
 	return ;
 }

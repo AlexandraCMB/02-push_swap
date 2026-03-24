@@ -4,12 +4,14 @@ RM      = rm -rf
 NAME    = push_swap
 
 SRC     = src/main.c \
-          src/operations/operations_swap.c \
-          src/operations/operations_rot.c \
-          src/operations/operations_double.c \
-          src/operations/operations_push.c \
-          src/utilities/linked_list.c \
-          src/utilities/assigning_indices.c
+            src/utilities/linked_list.c \
+            src/utilities/assigning_indices.c \
+            src/operations/push.c \
+            src/operations/swap.c \
+            src/operations/rot.c \
+            src/operations/rev_rot.c
+
+
 
 OBJ     = $(SRC:src/%.c=objs/%.o)
 

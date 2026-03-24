@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_utilities.c                              :+:      :+:    :+:   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/15 19:35:17 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 14:45:14 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,22 @@ t_node	*init_stack(int argc, char **argv)
 			stack = insert_at_back(&stack, atoi(argv[i++]));
 	}
 	return (stack);
+}
+
+
+void free_nodes(t_stack *stack)
+{
+    t_node *tmp;
+	t_node *head;
+	int size;
+
+	head = stack->head;
+	size = stack->size;
+    while (size > 0)
+    {
+       	tmp = head;
+        head = head->next;
+        free(tmp);
+        size--;
+    }
 }
