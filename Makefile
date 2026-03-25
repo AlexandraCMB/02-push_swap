@@ -6,12 +6,11 @@ NAME    = push_swap
 SRC     = src/main.c \
             src/utilities/linked_list.c \
             src/utilities/assigning_indices.c \
+            src/utilities/manual_sort.c \
             src/operations/push.c \
             src/operations/swap.c \
             src/operations/rot.c \
             src/operations/rev_rot.c \
-            src/manual_sort.c \
-
 
 
 OBJ     = $(SRC:src/%.c=objs/%.o)

@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 15:02:58 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/24 17:44:14 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,21 @@ void	rot_both(t_ps *data);
 
 //UTILITES
 //linked_list.c
-t_node *create_node(int data);
-t_node *insert_at_back(t_node **head, int data);
+t_node	*create_node(int data);
+t_node	*insert_at_back(t_node **head, int data);
 t_node	*init_stack(int argc, char **argv);
-t_node *insert_at_beginning(t_node **head, t_node *newnode);
+t_node	*insert_at_beginning(t_node **head, t_node *newnode);
 void	free_nodes(t_stack *stack);
 
 //assigning_indices
-void create_indices(t_ps *data);
-void assign_indices(t_node *stack, int *arr, int len);
-void bubble_sort(int *arr, int len);
-int in_order(int *arr, int len);
+void	create_indices(t_ps *data);
+void	assign_indices(t_node *stack, int *arr, int len);
+void	bubble_sort(int *arr, int len);
+int		in_order(int *arr, int len);
 
 //manual_sorting.c
-void sort(t_ps *data);
-void sort_three(t_ps *data);
+void	sort(t_ps *data);
+void	sort_three(t_ps *data);
 
 
 
