@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 16:36:36 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:20:17 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+#include <limits.h>
+
 
 typedef enum e_op
 {
@@ -71,49 +73,55 @@ typedef struct s_ps
 }			t_ps;
 
 //MAIN.C
-int stack_len(t_node *stack);
-int print_stacks(t_ps *data);
+int 		stack_len(t_node *stack);
+int 		print_stacks(t_ps *data);
 
 // /OPERATIONS/*.c
 //swaps
-void	swap(t_node **stack);
-void	swap_a(t_ps *data);
-void	swap_b(t_ps *data);
-void	swap_both(t_ps *data);
+void		swap(t_node **stack);
+void		swap_a(t_ps *data);
+void		swap_b(t_ps *data);
+void		swap_both(t_ps *data);
 //pushes
-void	push(t_node **stack_from, t_node **stack_to);
-void	push_a(t_ps *data);
-void	push_b(t_ps *data);
+void		push(t_node **stack_from, t_node **stack_to);
+void		push_a(t_ps *data);
+void		push_b(t_ps *data);
 //rotates up
-void	rot(t_node **stack);
-void	rot_a(t_ps *data);
-void	rot_b(t_ps *data);
-void	rot_both(t_ps *data);
+void		rot(t_node **stack);
+void		rot_a(t_ps *data);
+void		rot_b(t_ps *data);
+void		rot_both(t_ps *data);
 //rotates down
-void	rev_rot(t_node **stack);
-void	rev_rot_a(t_ps *data);
-void	rev_rot_b(t_ps *data);
-void	rot_both(t_ps *data);
+void		rev_rot(t_node **stack);
+void		rev_rot_a(t_ps *data);
+void		rev_rot_b(t_ps *data);
+void		rot_both(t_ps *data);
 
-//UTILITES
+//UTILITES/*.c
 //linked_list.c
-t_node	*create_node(int num);
-t_node	*insert_at_back(t_node **head, int num);
-t_node	*init_stack(int argc, char **argv);
-t_node	*insert_at_beginning(t_node **head, t_node *newnode);
-void	free_nodes(t_stack *stack);
+t_node		*create_node(int num);
+t_node		*insert_at_back(t_node **head, int num);
+t_node		*init_stack(int argc, char **argv);
+t_node		*insert_at_beginning(t_node **head, t_node *newnode);
+void		free_nodes(t_stack *stack);
 //assigning_indices
-void	create_indices(t_ps *data);
-void	assign_indices(t_node *stack, int *arr, int len);
-void	bubble_sort(int *arr, int len);
-int		in_order(int *arr, int len);
+void		create_indices(t_ps *data);
+void		assign_indices(t_node *stack, int *arr, int len);
+void		bubble_sort(int *arr, int len);
+int			in_order(int *arr, int len);
 //manual_sorting.c
-void	sort(t_ps *data);
-void	sort_three(t_ps *data);
+void		sort(t_ps *data);
+void		sort_three(t_ps *data);
 //printing_op.c
-void log_op(t_ps *data, t_op op);
-const char *op_to_str(t_op op);
-void print_ops(t_ps *data);
+void		log_op(t_ps *data, t_op op);
+const char	*op_to_str(t_op op);
+void		print_ops(t_ps *data);
+//input_checker.c
+void		input_checker(char *str);
+void int_overflow(long int num);
 
+//LIBFT/*.c
+size_t		ft_strlen(const char *s);
+int			ft_atoi(const char *str);
 
 #endif

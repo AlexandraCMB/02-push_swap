@@ -11,7 +11,11 @@ SRC     = src/main.c \
             src/operations/swap.c \
             src/operations/rot.c \
             src/operations/rev_rot.c \
-            src/utilities/printing_op.c
+            src/utilities/printing_op.c \
+            src/utilities/input_checker.c \
+            src/libft/ft_atoi.c \
+            src/libft/ft_strlen.c \
+
 
 
 OBJ     = $(SRC:src/%.c=objs/%.o)

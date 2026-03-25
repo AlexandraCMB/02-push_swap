@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 17:14:21 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:17:44 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int main (int argc, char **argv)
 
 	//MALLOC
     data = malloc(sizeof(t_ps));
-    // 2. Allocate the actual stack headers inside the wrapper
     data->stack_a = malloc(sizeof(t_stack));
     data->stack_b = malloc(sizeof(t_stack));
 	data->operations = malloc(sizeof(t_node));
+
 
 
     //INIT

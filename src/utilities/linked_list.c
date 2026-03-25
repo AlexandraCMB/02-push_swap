@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 16:34:58 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:19:36 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,12 @@ t_node	*init_stack(int argc, char **argv)
 	if (argc > 1)
 	{
 		while (i < argc)
-			stack = insert_at_back(&stack, atoi(argv[i++]));
+		{
+			input_checker(argv[i]);
+			stack = insert_at_back(&stack, ft_atoi(argv[i]));
+
+			i++;
+		}
 	}
 	return (stack);
 }
