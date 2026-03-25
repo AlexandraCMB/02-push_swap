@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 15:00:08 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 16:34:04 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	create_indices(t_ps *data)
 	tmp = data->stack_a->head;
 	while (i < len)
 	{
-		arr[i] = tmp->data;
+		arr[i] = tmp->num;
 		tmp = tmp->next;
 		i++;
 	}
@@ -51,7 +51,7 @@ void	assign_indices(t_node *stack, int *arr, int len)
 		entry = 0;
 		while (x < len)
 		{
-			if (arr[x] == head->data)
+			if (arr[x] == head->num)
 			{
 				head->idx = x;
 				//printf("Assigned index %ld to value %d\n", head->idx, head->data);

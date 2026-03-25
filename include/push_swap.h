@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 14:55:46 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 16:36:36 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef enum e_op
 //Structure of doubly linked list
 typedef struct s_node
 {
-	int			data;
+	int			num;
 	size_t			idx;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -97,8 +97,8 @@ void	rot_both(t_ps *data);
 
 //UTILITES
 //linked_list.c
-t_node	*create_node(int data);
-t_node	*insert_at_back(t_node **head, int data);
+t_node	*create_node(int num);
+t_node	*insert_at_back(t_node **head, int num);
 t_node	*init_stack(int argc, char **argv);
 t_node	*insert_at_beginning(t_node **head, t_node *newnode);
 void	free_nodes(t_stack *stack);

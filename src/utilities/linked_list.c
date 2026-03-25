@@ -6,20 +6,20 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 13:46:44 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 16:34:58 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int data)
+t_node	*create_node(int num)
 {
 	t_node	*newnode;
 
 	newnode = (t_node *)malloc(sizeof(t_node));
 	if (!newnode)
 		return (NULL);
-	newnode->data = data;
+	newnode->num = num;
 	newnode->next = NULL;
 	newnode->prev = NULL;
 	return (newnode);
@@ -49,12 +49,12 @@ t_node	*insert_at_beginning(t_node **head, t_node *newnode)
 
 
 
-t_node	*insert_at_back(t_node **head, int data)
+t_node	*insert_at_back(t_node **head, int num)
 {
 	t_node	*newnode;
 	t_node	*tail;
 
-	newnode = create_node(data);
+	newnode = create_node(num);
 	if (!(*head))
 	{
 		newnode->next = newnode;

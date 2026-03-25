@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 11:44:02 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 16:37:40 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void sort(t_ps *data)
 	size_t len = data->stack_a->size;
 	if (len == 2)
 	{
-		if (data->stack_a->head->data > data->stack_a->head->next->data)
+		if (data->stack_a->head->num > data->stack_a->head->next->num)
 			swap_a(data);
 	}
 	else if (len == 3)
@@ -32,9 +32,9 @@ void sort(t_ps *data)
 
 void sort_three(t_ps *data)
 {
-	int first = data->stack_a->head->data;
-	int second = data->stack_a->head->next->data;
-	int third = data->stack_a->head->next->next->data;
+	int first = data->stack_a->head->num;
+	int second = data->stack_a->head->next->num;
+	int third = data->stack_a->head->next->next->num;
 
 	if (first > second && second < third && first < third)
 		swap_a(data);

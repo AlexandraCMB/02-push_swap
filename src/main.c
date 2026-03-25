@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 15:12:50 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 17:14:21 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main (int argc, char **argv)
     data->stack_a = malloc(sizeof(t_stack));
     data->stack_b = malloc(sizeof(t_stack));
 	data->operations = malloc(sizeof(t_node));
+
 
     //INIT
     data->stack_a->head = init_stack(argc, argv);
@@ -101,19 +102,19 @@ int print_stacks(t_ps *data)
 	{
 		if(a == 0 && b > 0)
 		{
-			printf("	-	|	%d\n", tmp_b->data);
+			printf("	-	|	%d\n", tmp_b->num);
 			tmp_b=tmp_b->next;
 			b--;
 		}
 		if(a > 0 && b==0)
 		{
-			printf("	%d	|	-\n", tmp_a->data);
+			printf("	%d	|	-\n", tmp_a->num);
 			tmp_a=tmp_a->next;
 			a--;
 		}
 		if(a > 0 && b > 0)
 		{
-			printf("	%d	|	%d\n", tmp_a->data, tmp_b->data);
+			printf("	%d	|	%d\n", tmp_a->num, tmp_b->num);
 			tmp_a=tmp_a->next;
 			tmp_b=tmp_b->next;
 			a--;
