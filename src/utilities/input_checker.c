@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 18:19:11 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:25:28 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void int_overflow(long int num)
 	printf("int x is %d\n",x);
 	printf("long int num is %ld\n",num);
 	if((long int)x != num )
-	{
+	{	
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
