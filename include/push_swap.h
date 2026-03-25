@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 17:44:14 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 14:55:46 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,22 @@
 # include <stdlib.h>
 # include <string.h>
 
-//Structure of doubly linked list s_structure t_type
+typedef enum e_op
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR
+}	t_op;
+
+//Structure of doubly linked list
 typedef struct s_node
 {
 	int			data;
@@ -40,16 +55,19 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
+//struct containing list and their sizes
 typedef struct s_stack
 {
 	t_node			*head;
 	int 			size;
 }					t_stack;
 
+//struct containing both stacks and operation lsit
 typedef struct s_ps
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*operations;
 }			t_ps;
 
 //MAIN.C
@@ -84,18 +102,18 @@ t_node	*insert_at_back(t_node **head, int data);
 t_node	*init_stack(int argc, char **argv);
 t_node	*insert_at_beginning(t_node **head, t_node *newnode);
 void	free_nodes(t_stack *stack);
-
 //assigning_indices
 void	create_indices(t_ps *data);
 void	assign_indices(t_node *stack, int *arr, int len);
 void	bubble_sort(int *arr, int len);
 int		in_order(int *arr, int len);
-
 //manual_sorting.c
 void	sort(t_ps *data);
 void	sort_three(t_ps *data);
-
-
+//printing_op.c
+void log_op(t_ps *data, t_op op);
+const char *op_to_str(t_op op);
+void print_ops(t_ps *data);
 
 
 #endif

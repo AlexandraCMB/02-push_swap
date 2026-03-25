@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 19:40:34 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 11:44:02 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void sort_three(t_ps *data)
 
 	if (first > second && second < third && first < third)
 		swap_a(data);
-
 	else if (first < second && second > third && first > third)
 		rev_rot_a(data);
 	else if (first > second && second < third && first > third)

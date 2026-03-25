@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 15:03:22 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 15:12:50 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,32 +18,39 @@ int main (int argc, char **argv)
 {
 	t_ps *data;
 
-	// 1. Allocate the main wrapper
+	//MALLOC
     data = malloc(sizeof(t_ps));
     // 2. Allocate the actual stack headers inside the wrapper
     data->stack_a = malloc(sizeof(t_stack));
     data->stack_b = malloc(sizeof(t_stack));
-	
-    // 3. Initialize values 
+	data->operations = malloc(sizeof(t_node));
+
+    //INIT
     data->stack_a->head = init_stack(argc, argv);
     data->stack_a->size = argc - 1; // Assuming init_stack works correctly
     data->stack_b->head = NULL;
     data->stack_b->size = 0;
-
+	data->operations->head = NULL;
+	data->operations->size = 0;
 	
 	printf("Before:\n");
 	print_stacks(data);
 	create_indices(data);
 	//DEMO OPERATIONS
-	
 	sort(data);
+	print_ops(data);
 	//
 	printf("\nAfter:\n");
 	print_stacks(data);
+
+	
+	//FREE
 	free_nodes(data->stack_a);
 	free_nodes(data->stack_b);
+	free_nodes(data->operations);
 	free(data->stack_a);
 	free(data->stack_b);
+	free(data->operations);
 	free(data);
 	return (1);
 }

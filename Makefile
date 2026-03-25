@@ -11,6 +11,7 @@ SRC     = src/main.c \
             src/operations/swap.c \
             src/operations/rot.c \
             src/operations/rev_rot.c \
+            src/utilities/printing_op.c
 
 
 OBJ     = $(SRC:src/%.c=objs/%.o)

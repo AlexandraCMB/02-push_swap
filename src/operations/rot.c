@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 14:24:54 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 14:44:27 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void rot_a(t_ps *data)
 	if (!data->stack_a->head)
 		return ;
 	data->stack_a->head = data->stack_a->head->next;
+	log_op(data, RA);
 	return ;
 }
 
@@ -37,6 +38,7 @@ void rot_b(t_ps *data)
 	if (!data->stack_b->head)
 		return ;
 	data->stack_b->head = data->stack_b->head->next;
+	log_op(data, RB);
 	return ;
 }
 
@@ -45,5 +47,6 @@ void rot_both(t_ps *data)
 {
 	rot_a(data);
 	rot_b(data);
+	log_op(data, RR);
 	return ;
 }

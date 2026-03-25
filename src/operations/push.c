@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/24 14:27:57 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 14:32:38 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void push_a(t_ps *data)
 	push(&data->stack_b->head, &data->stack_a->head);
 	data->stack_a->size++;
 	data->stack_b->size--;
+	log_op(data, PA);
 	return ;
 }
 
@@ -46,5 +47,6 @@ void push_b(t_ps *data)
 	push(&data->stack_a->head, &data->stack_b->head);
 	data->stack_b->size++;
 	data->stack_a->size--;
+	log_op(data, PB);
 	return ;
 }
