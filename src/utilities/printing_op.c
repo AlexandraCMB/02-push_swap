@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 15:12:18 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/03/25 15:14:00 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,3 @@ void print_ops(t_ps *data)
 	}
 	return;
 }
-
