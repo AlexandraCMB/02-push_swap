@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 18:19:36 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:49:34 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ t_node	*insert_at_beginning(t_node **head, t_node *newnode)
 	return (*head);
 }
 
-
-
 t_node	*insert_at_back(t_node **head, int num)
 {
 	t_node	*newnode;
@@ -86,7 +84,6 @@ t_node	*init_stack(int argc, char **argv)
 		{
 			input_checker(argv[i]);
 			stack = insert_at_back(&stack, ft_atoi(argv[i]));
-
 			i++;
 		}
 	}
@@ -94,19 +91,3 @@ t_node	*init_stack(int argc, char **argv)
 }
 
 
-void free_nodes(t_stack *stack)
-{
-    t_node *tmp;
-	t_node *head;
-	int size;
-
-	head = stack->head;
-	size = stack->size;
-    while (size > 0)
-    {
-       	tmp = head;
-        head = head->next;
-        free(tmp);
-        size--;
-    }
-}

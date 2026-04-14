@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 17:17:44 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:51:34 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,17 @@ int main (int argc, char **argv)
 
 	//MALLOC
     data = malloc(sizeof(t_ps));
-    data->stack_a = malloc(sizeof(t_stack));
-    data->stack_b = malloc(sizeof(t_stack));
+    data->stack_a = malloc(sizeof(t_node));
+    data->stack_b = malloc(sizeof(t_node));
 	data->operations = malloc(sizeof(t_node));
 
 
 
     //INIT
-    data->stack_a->head = init_stack(argc, argv);
-    data->stack_a->size = argc - 1; // Assuming init_stack works correctly
-    data->stack_b->head = NULL;
-    data->stack_b->size = 0;
-	data->operations->head = NULL;
-	data->operations->size = 0;
+    data->stack_a = init_stack(argc, argv);
+    data->list_size = argc - 1; // Assuming init_stack works correctly
+    data->stack_b = NULL;
+	data->operations = NULL;
 	
 	printf("Before:\n");
 	print_stacks(data);
@@ -46,9 +44,6 @@ int main (int argc, char **argv)
 
 	
 	//FREE
-	free_nodes(data->stack_a);
-	free_nodes(data->stack_b);
-	free_nodes(data->operations);
 	free(data->stack_a);
 	free(data->stack_b);
 	free(data->operations);
@@ -85,11 +80,11 @@ int  stack_len(t_node *stack)
 
 int print_stacks(t_ps *data)
 {
-	t_node *tmp_a = data->stack_a->head;
-	t_node *tmp_b = data->stack_b->head;
+	t_node *tmp_a = data->stack_a;
+	t_node *tmp_b = data->stack_b;
 
-	int a = data->stack_a->size;
-	int b = data->stack_b->size;
+	int a = stack_len(data->stack_a);
+	int b = stack_len(data->stack_b);
 	if (a==0 && b ==0)
 	{
 		printf("A: (empty)	 	B: (empty)\n");

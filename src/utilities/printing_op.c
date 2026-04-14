@@ -6,15 +6,16 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 16:35:58 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:54:51 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//printing operations to data->operations list, then print them at the end of the program
 void log_op(t_ps *data, t_op op)
 {
-	insert_at_back(&data->operations->head, op);
+	insert_at_back(&data->operations, op);
 	data->operations->size++;
 	return;
 }

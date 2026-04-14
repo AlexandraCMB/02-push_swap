@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 14:32:38 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:33:54 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,18 @@ void	push(t_node **stack_from, t_node **stack_to)
 
 void push_a(t_ps *data)
 {
-	if (!data->stack_b->head)
+	if (!data->stack_b)
 		return ;
-	push(&data->stack_b->head, &data->stack_a->head);
-	data->stack_a->size++;
-	data->stack_b->size--;
+	push(&data->stack_b, &data->stack_a);
 	log_op(data, PA);
 	return ;
 }
 
 void push_b(t_ps *data)
 {
-	if (!data->stack_a->head)
+	if (!data->stack_a)
 		return ;
-	push(&data->stack_a->head, &data->stack_b->head);
-	data->stack_b->size++;
-	data->stack_a->size--;
+	push(&data->stack_a, &data->stack_b);
 	log_op(data, PB);
 	return ;
 }

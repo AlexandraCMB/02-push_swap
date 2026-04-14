@@ -4,17 +4,20 @@ RM      = rm -rf
 NAME    = push_swap
 
 SRC     = src/main.c \
-            src/utilities/linked_list.c \
-            src/utilities/assigning_indices.c \
-            src/utilities/manual_sort.c \
+            src/algorithms/manual_sort.c \
+            src/libft/ft_atoi.c \
+            src/libft/ft_strlen.c \
             src/operations/push.c \
             src/operations/swap.c \
             src/operations/rot.c \
             src/operations/rev_rot.c \
-            src/utilities/printing_op.c \
+            src/utilities/assigning_chunks.c \
+            src/utilities/assigning_indices.c \
             src/utilities/input_checker.c \
-            src/libft/ft_atoi.c \
-            src/libft/ft_strlen.c \
+            src/utilities/linked_list.c \
+            src/utilities/printing_op.c \
+            src/utilities/freeing.c \
+
 
 
 

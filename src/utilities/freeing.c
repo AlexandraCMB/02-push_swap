@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rot.c                                          :+:      :+:    :+:   */
+/*   freeing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:34:18 by abrunjes         ###   ########.fr       */
+/*   Created: 2026/04/14 18:41:19 by abrunjes          #+#    #+#             */
+/*   Updated: 2026/04/14 18:41:52 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// void free_nodes(t_stack *stack)
+// {
+//     t_node *tmp;
+// 	t_node *head;
+// 	int size;
 
-//REVERSE ROTATIO
-void	rev_rot(t_node **stack)
-{
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->prev;
-	return ;
-}
-
-
-void rev_rot_a(t_ps *data)
-{
-	rev_rot(&data->stack_a);
-	log_op(data, RRA);
-	return ;
-}
-
-void rev_rot_b(t_ps *data)
-{
-	rev_rot(&data->stack_b);
-	log_op(data, RRB);
-
-	return ;
-}
-
-void rev_rot_both(t_ps *data)
-{
-	rev_rot(&data->stack_a);
-	rev_rot(&data->stack_b);
-	log_op(data, RRR);
-	return ;
-}
+// 	head = stack->head;
+// 	size = stack->size;
+//     while (size > 0)
+//     {
+//        	tmp = head;
+//         head = head->next;
+//         free(tmp);
+//         size--;
+//     }
+// }

@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 16:34:04 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:36:30 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	create_indices(t_ps *data)
 	int	*arr;
 	t_node *tmp;
 
-	len = data->stack_a->size;
+	len = data->list_size;
 	i = 0;
 	arr = (int *)malloc(len * sizeof(int));
 	if (!arr)
 		return ;
-	tmp = data->stack_a->head;
+	tmp = data->stack_a;
 	while (i < len)
 	{
 		arr[i] = tmp->num;

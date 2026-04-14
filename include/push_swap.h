@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 18:20:17 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 18:44:18 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # include <string.h>
 #include <limits.h>
 
-
 typedef enum e_op
 {
 	SA,
@@ -51,25 +50,29 @@ typedef enum e_op
 //Structure of doubly linked list
 typedef struct s_node
 {
-	int			num;
+	int				num;
 	size_t			idx;
+	size_t			chunk_num;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
 
-//struct containing list and their sizes
-typedef struct s_stack
-{
-	t_node			*head;
-	int 			size;
-}					t_stack;
+//struct containing stack and size
+// typedef struct s_stack
+// {
+// 	t_node			*head;
+// 	int 			size;
+// }					t_stack;
 
-//struct containing both stacks and operation lsit
+//struct containing both stacks and operation list 
 typedef struct s_ps
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	t_stack	*operations;
+	t_node	*stack_a;
+	t_node	*stack_b;
+	size_t	list_size;
+	size_t	chunk_size;
+	size_t	num_chunks;
+	t_node	*operations;
 }			t_ps;
 
 //MAIN.C
@@ -103,15 +106,11 @@ t_node		*create_node(int num);
 t_node		*insert_at_back(t_node **head, int num);
 t_node		*init_stack(int argc, char **argv);
 t_node		*insert_at_beginning(t_node **head, t_node *newnode);
-void		free_nodes(t_stack *stack);
 //assigning_indices
 void		create_indices(t_ps *data);
 void		assign_indices(t_node *stack, int *arr, int len);
 void		bubble_sort(int *arr, int len);
 int			in_order(int *arr, int len);
-//manual_sorting.c
-void		sort(t_ps *data);
-void		sort_three(t_ps *data);
 //printing_op.c
 void		log_op(t_ps *data, t_op op);
 const char	*op_to_str(t_op op);
@@ -119,6 +118,16 @@ void		print_ops(t_ps *data);
 //input_checker.c
 void		input_checker(char *str);
 void int_overflow(long int num);
+//chunk_sort.c
+void		number_of_chunks(t_ps *data);
+void		assign_chunk_numbers(t_ps *data, int num_chunks);
+//freeing.c
+void		free_nodes(t_node *stack);
+
+//ALGORITHMS/*.c
+//manual_sort.c
+void		sort(t_ps *data);
+void		sort_three(t_ps *data);
 
 //LIBFT/*.c
 size_t		ft_strlen(const char *s);
