@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:36:30 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:00:09 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	assign_indices(t_node *stack, int *arr, int len)
 			if (arr[x] == head->num)
 			{
 				head->idx = x;
-				//printf("Assigned index %ld to value %d\n", head->idx, head->data);
 				break ;
 			}
 			x++;

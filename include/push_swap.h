@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:44:18 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/14 19:12:25 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,11 @@ typedef struct s_ps
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	t_node	*operations;
 	size_t	list_size;
 	size_t	chunk_size;
 	size_t	num_chunks;
-	t_node	*operations;
+
 }			t_ps;
 
 //MAIN.C

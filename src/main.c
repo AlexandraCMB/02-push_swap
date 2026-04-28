@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:51:34 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:13:07 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,11 @@ int main (int argc, char **argv)
 
 	//MALLOC
     data = malloc(sizeof(t_ps));
-    data->stack_a = malloc(sizeof(t_node));
-    data->stack_b = malloc(sizeof(t_node));
-	data->operations = malloc(sizeof(t_node));
-
-
 
     //INIT
     data->stack_a = init_stack(argc, argv);
     data->list_size = argc - 1; // Assuming init_stack works correctly
-    data->stack_b = NULL;
+	data->stack_b = NULL;
 	data->operations = NULL;
 	
 	printf("Before:\n");
@@ -39,14 +34,15 @@ int main (int argc, char **argv)
 	sort(data);
 	print_ops(data);
 	//
+	
 	printf("\nAfter:\n");
 	print_stacks(data);
 
 	
 	//FREE
-	free(data->stack_a);
-	free(data->stack_b);
-	free(data->operations);
+	free_nodes(data->stack_a);
+	free_nodes(data->stack_b);
+	free_nodes(data->operations);
 	free(data);
 	return (1);
 }
@@ -85,6 +81,8 @@ int print_stacks(t_ps *data)
 
 	int a = stack_len(data->stack_a);
 	int b = stack_len(data->stack_b);
+	printf("Stack A length: %d\n", a);
+	printf("Stack B length: %d\n", b);
 	if (a==0 && b ==0)
 	{
 		printf("A: (empty)	 	B: (empty)\n");

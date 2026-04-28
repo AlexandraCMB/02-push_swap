@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:54:51 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:00:26 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void log_op(t_ps *data, t_op op)
 {
 	insert_at_back(&data->operations, op);
-	data->operations->size++;
 	return;
 }
 
@@ -36,15 +35,32 @@ const char *op_to_str(t_op op)
 	ops[10] = "rrr";
 	return (ops[op]);
 }
-
 void print_ops(t_ps *data)
 {
-	t_node *tmp = data->operations->head;
-	int size = data->operations->size;
-	while (size-- > 0)
-	{
-		printf("%s\n", op_to_str(tmp->num));
-		tmp = tmp->next;
-	}
-	return;
+    // Guard: Check if data or operations is NULL
+    if (!data || !data->operations)
+    {
+        printf("No operations to print.\n");
+        return;
+    }
+    t_node *tmp = data->operations;
+    int size = data->list_size;
+    // Now it's safe to access tmp->num
+    while (size-- > 0 && tmp != NULL) // Added tmp != NULL for safety
+    {
+        printf("%s\n", op_to_str(tmp->num));
+        tmp = tmp->next;
+    }
 }
+// void print_ops(t_ps *data)
+// {
+// 	t_node *tmp = data->operations;
+// 	int size = data->list_size;
+// 	printf("data->operation->num is %d\n", tmp->num);
+// 	while (size-- > 0)
+// 	{
+// 		printf("%s\n", op_to_str(tmp->num));
+// 		tmp = tmp->next;
+// 	}
+// 	return;
+// }

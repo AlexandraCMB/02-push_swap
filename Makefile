@@ -1,5 +1,5 @@
 CC      = gcc
-CFLAGS  = -Wall -Wextra -Werror -Iinclude
+CFLAGS  = -g3 -O0 -Wall -Wextra -Werror -Iinclude
 RM      = rm -rf
 NAME    = push_swap
 
