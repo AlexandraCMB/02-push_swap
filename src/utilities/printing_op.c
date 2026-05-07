@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 12:00:26 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:17:45 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void print_ops(t_ps *data)
     // Now it's safe to access tmp->num
     while (size-- > 0 && tmp != NULL) // Added tmp != NULL for safety
     {
-        printf("%s\n", op_to_str(tmp->num));
+        printf(GREEN"%s\n"RESET, op_to_str(tmp->num));
         tmp = tmp->next;
     }
 }

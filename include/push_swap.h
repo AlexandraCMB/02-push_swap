@@ -6,23 +6,23 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 19:12:25 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:25:07 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+//man console_codes
 # define C0   "\033[30m"
 # define C1   "\033[31m"
-# define C2   "\033[32m"
+# define GREEN   "\033[32m"
 # define C3   "\033[33m"
-# define C4   "\033[34m"
-# define C5   "\033[35m"
+# define BLUE  "\033[34m"
+# define PURP  "\033[35m"
 # define C6   "\033[36m"
 # define C7   "\033[37m"
-# define C8   "\033[38m"
-# define C9   "\033[39m"
+
 # define RESET "\033[0m"
 
 # include <stdio.h>
@@ -56,13 +56,6 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
-
-//struct containing stack and size
-// typedef struct s_stack
-// {
-// 	t_node			*head;
-// 	int 			size;
-// }					t_stack;
 
 //struct containing both stacks and operation list 
 typedef struct s_ps

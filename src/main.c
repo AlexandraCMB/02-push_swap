@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 13:13:07 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:20:55 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main (int argc, char **argv)
 	data->stack_b = NULL;
 	data->operations = NULL;
 	
-	printf("Before:\n");
+	printf(PURP"Before:\n");
 	print_stacks(data);
 	create_indices(data);
 	//DEMO OPERATIONS
@@ -35,7 +35,7 @@ int main (int argc, char **argv)
 	print_ops(data);
 	//
 	
-	printf("\nAfter:\n");
+	printf(BLUE"\nAfter:\n");
 	print_stacks(data);
 
 	
@@ -81,8 +81,8 @@ int print_stacks(t_ps *data)
 
 	int a = stack_len(data->stack_a);
 	int b = stack_len(data->stack_b);
-	printf("Stack A length: %d\n", a);
-	printf("Stack B length: %d\n", b);
+	// printf("Stack A length: %d\n", a);
+	// printf("Stack B length: %d\n", b);
 	if (a==0 && b ==0)
 	{
 		printf("A: (empty)	 	B: (empty)\n");
