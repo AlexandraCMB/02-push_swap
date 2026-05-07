@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 17:06:25 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 18:51:52 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void sort_three(t_ps *data)
 {
 	int first = data->stack_a->num;
 	int second = data->stack_a->next->num;
-	int third = data->stack_a->next->next->num;
+	int third = data->stack_a->prev->num;
 
 	if (first > second && second < third && first < third)
 		swap_a(data);
@@ -68,17 +68,19 @@ void sort_five(t_ps *data)
 	push_b(data);
 	push_b(data);
 	sort_three(data);
+	print_stacks(data);
 	printf("--top of A is %d\n", data->stack_a->num);
 	printf("--top of B is %d\n", data->stack_b->num);
 	// int i = 4;
 	while(data->stack_b  )
 	{
-
 		//top of B bigger than all of A
 		if(max_in_stack(data->stack_a, data->stack_b->idx)==1)
 		{
-			while(data->stack_b->idx != data->stack_a->prev->idx + 1)
-				rot_a(data);
+			while(data->stack_b->idx != data->stack_a->idx + 1)
+				rev_rot_a(data);
+			printf("MAX\n");
+			print_stacks(data);
 			push_a(data);
 		//	rot_a(data);
 		}
@@ -88,6 +90,8 @@ void sort_five(t_ps *data)
 			while(data->stack_b->idx != data->stack_a->idx -1)
 				rot_a(data);
 			push_a(data);
+			printf("MIN\n");
+			print_stacks(data);
 
 		}
 		//top of B between values in A - rotate until spot found
@@ -96,11 +100,15 @@ void sort_five(t_ps *data)
 			while(data->stack_b->idx != data->stack_a->idx -1)
 				rot_a(data);
 			push_a(data);
+			printf("BETWEEN\n");
+			print_stacks(data);
+
 		}
 	}
 	print_stacks(data);
 	while(data->stack_a->idx != 0)
 	{
+		print_stacks(data);
 		if(cost_to_top_a(data, 0) > 2)
 			rev_rot_a(data);
 		else

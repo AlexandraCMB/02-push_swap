@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 15:03:50 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 18:32:05 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int main (int argc, char **argv)
     data->list_size = argc - 1; // Assuming init_stack works correctly
 	data->stack_b = NULL;
 	data->operations = NULL;
+	data->operations_counter = 0;
 	
 	printf(BLUE"\nBefore:\n"RESET);
 	print_stacks(data);
+
 	create_indices(data);
 	//DEMO OPERATIONS
 	sort(data);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rot.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:34:51 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 18:04:22 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	rot(t_node **stack)
 	if (!(*stack))
 		return ;
 	(*stack) = (*stack)->next;
-
 	return ;
 }
 

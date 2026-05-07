@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 16:20:31 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 18:23:15 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_ps
 	t_node	*stack_a;
 	t_node	*stack_b;
 	t_node	*operations;
+	size_t	operations_counter;
 	size_t	list_size;
 	size_t	chunk_size;
 	size_t	num_chunks;
