@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 13:25:07 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:20:31 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 # define PUSH_SWAP_H
 
 //man console_codes
-# define C0   "\033[30m"
-# define C1   "\033[31m"
+# define RED   "\033[31m"
 # define GREEN   "\033[32m"
-# define C3   "\033[33m"
+# define YELLOW   "\033[33m"
 # define BLUE  "\033[34m"
 # define PURP  "\033[35m"
-# define C6   "\033[36m"
-# define C7   "\033[37m"
+# define TURQ   "\033[36m"
+# define BROWN   "\033[37m"
 
 # define RESET "\033[0m"
 
@@ -122,6 +121,13 @@ void		free_nodes(t_node *stack);
 //manual_sort.c
 void		sort(t_ps *data);
 void		sort_three(t_ps *data);
+void		sort_five(t_ps *data);
+int max_in_stack(t_node *stack, size_t idx);
+int min_in_stack(t_node *stack, size_t idx);
+int cost_to_top_a(t_ps *data, size_t num_in_list);
+int stack_in_order(t_node *stack);
+
+
 
 //LIBFT/*.c
 size_t		ft_strlen(const char *s);

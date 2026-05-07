@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printing_op.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 13:17:45 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:05:20 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ const char *op_to_str(t_op op)
 }
 void print_ops(t_ps *data)
 {
+	int op_count= 0;
     // Guard: Check if data or operations is NULL
     if (!data || !data->operations)
     {
-        printf("No operations to print.\n");
+        printf(RED"\nNo operations to print.\n"RESET);
         return;
     }
     t_node *tmp = data->operations;
@@ -49,18 +50,9 @@ void print_ops(t_ps *data)
     while (size-- > 0 && tmp != NULL) // Added tmp != NULL for safety
     {
         printf(GREEN"%s\n"RESET, op_to_str(tmp->num));
+		op_count += 1;
+		
         tmp = tmp->next;
     }
+	printf(GREEN"\n ~~ %d operations ~~\n", op_count);
 }
-// void print_ops(t_ps *data)
-// {
-// 	t_node *tmp = data->operations;
-// 	int size = data->list_size;
-// 	printf("data->operation->num is %d\n", tmp->num);
-// 	while (size-- > 0)
-// 	{
-// 		printf("%s\n", op_to_str(tmp->num));
-// 		tmp = tmp->next;
-// 	}
-// 	return;
-// }

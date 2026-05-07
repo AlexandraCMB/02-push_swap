@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 13:20:55 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:03:50 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main (int argc, char **argv)
 	data->stack_b = NULL;
 	data->operations = NULL;
 	
-	printf(PURP"Before:\n");
+	printf(BLUE"\nBefore:\n"RESET);
 	print_stacks(data);
 	create_indices(data);
 	//DEMO OPERATIONS
@@ -35,7 +35,7 @@ int main (int argc, char **argv)
 	print_ops(data);
 	//
 	
-	printf(BLUE"\nAfter:\n");
+	printf(TURQ"\nAfter:\n"RESET);
 	print_stacks(data);
 
 	
@@ -85,29 +85,29 @@ int print_stacks(t_ps *data)
 	// printf("Stack B length: %d\n", b);
 	if (a==0 && b ==0)
 	{
-		printf("A: (empty)	 	B: (empty)\n");
+		printf(PURP"A: (empty)	 	B: (empty)\n");
 		return (0);
 	}
-	printf("	Stack A	| Stack B\n");
+	printf(PURP"	Stack A	| Stack B\n");
 	printf("-------------------------------\n");
 
 	while ((a + b) > 0)
 	{
 		if(a == 0 && b > 0)
 		{
-			printf("	-	|	%d\n", tmp_b->num);
+			printf(PURP"	-	|	%d\n"RESET, tmp_b->num);
 			tmp_b=tmp_b->next;
 			b--;
 		}
 		if(a > 0 && b==0)
 		{
-			printf("	%d	|	-\n", tmp_a->num);
+			printf(PURP"	%d	|	-\n"RESET, tmp_a->num);
 			tmp_a=tmp_a->next;
 			a--;
 		}
 		if(a > 0 && b > 0)
 		{
-			printf("	%d	|	%d\n", tmp_a->num, tmp_b->num);
+			printf(PURP"	%d	|	%d\n"RESET, tmp_a->num, tmp_b->num);
 			tmp_a=tmp_a->next;
 			tmp_b=tmp_b->next;
 			a--;

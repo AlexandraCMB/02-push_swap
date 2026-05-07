@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assigning_chunks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 16:57:08 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:35:57 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:05:08 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

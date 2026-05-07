@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assigning_indices.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/28 12:00:09 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:05:14 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
