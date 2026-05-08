@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:49:34 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/07 21:44:31 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,14 @@ t_node	*init_stack(int argc, char **argv)
 }
 
 
+void remove_next_node(t_node *node)
+{
+	t_node *to_remove;
+
+	if (!node || !node->next)
+		return;
+	to_remove = node->next;
+	node->next = to_remove->next;
+	to_remove->next->prev = node;
+	free(to_remove);
+}	

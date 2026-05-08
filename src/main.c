@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 18:32:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:32:43 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main (int argc, char **argv)
 
     //INIT
     data->stack_a = init_stack(argc, argv);
-    data->list_size = argc - 1; // Assuming init_stack works correctly
+    data->size_of_list = argc - 1; // Assuming init_stack works correctly
 	data->stack_b = NULL;
 	data->operations = NULL;
 	data->operations_counter = 0;
@@ -32,10 +32,11 @@ int main (int argc, char **argv)
 	print_stacks(data);
 
 	create_indices(data);
+	number_of_chunks(data);
 	//DEMO OPERATIONS
 	sort(data);
+	list_optimisation(data);
 	print_ops(data);
-	//
 	
 	printf(TURQ"\nAfter:\n"RESET);
 	print_stacks(data);
@@ -83,8 +84,13 @@ int print_stacks(t_ps *data)
 
 	int a = stack_len(data->stack_a);
 	int b = stack_len(data->stack_b);
-	// printf("Stack A length: %d\n", a);
-	// printf("Stack B length: %d\n", b);
+
+	//checking chunks
+	// printf("DATA INFO\n");
+	// printf("size_of_list - %ld\n", data->size_of_list);
+	// printf("size_of_chunk - %ld\n", data->size_of_chunk);
+	// printf("number_oof_chunks- %ld\n------------------\n\n", data->number_of_chunks);
+	
 	if (a==0 && b ==0)
 	{
 		printf(PURP"A: (empty)	 	B: (empty)\n");

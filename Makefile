@@ -17,7 +17,8 @@ SRC     = src/main.c \
             src/utilities/linked_list.c \
             src/utilities/printing_op.c \
             src/utilities/freeing.c \
-
+            src/utilities/optimisation.c \
+            src/algorithms/main_algo.c
 
 
 

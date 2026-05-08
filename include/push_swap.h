@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 18:23:15 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/08 21:25:30 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_node
 {
 	int				num;
 	size_t			idx;
-	size_t			chunk_num;
+	size_t			chunk;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -63,9 +63,9 @@ typedef struct s_ps
 	t_node	*stack_b;
 	t_node	*operations;
 	size_t	operations_counter;
-	size_t	list_size;
-	size_t	chunk_size;
-	size_t	num_chunks;
+	size_t	size_of_list;
+	size_t	size_of_chunk;
+	size_t	number_of_chunks;
 
 }			t_ps;
 
@@ -100,6 +100,8 @@ t_node		*create_node(int num);
 t_node		*insert_at_back(t_node **head, int num);
 t_node		*init_stack(int argc, char **argv);
 t_node		*insert_at_beginning(t_node **head, t_node *newnode);
+void		remove_next_node(t_node *node);
+
 //assigning_indices
 void		create_indices(t_ps *data);
 void		assign_indices(t_node *stack, int *arr, int len);
@@ -114,9 +116,16 @@ void		input_checker(char *str);
 void int_overflow(long int num);
 //chunk_sort.c
 void		number_of_chunks(t_ps *data);
-void		assign_chunk_numbers(t_ps *data, int num_chunks);
+void assign_chunk_numbers(t_ps *data);
 //freeing.c
 void		free_nodes(t_node *stack);
+//optimisation.c
+void		list_optimisation(t_ps *data);
+int			operation_pair_check( t_node *operation);
+
+
+
+
 
 //ALGORITHMS/*.c
 //manual_sort.c
@@ -127,7 +136,8 @@ int max_in_stack(t_node *stack, size_t idx);
 int min_in_stack(t_node *stack, size_t idx);
 int cost_to_top_a(t_ps *data, size_t num_in_list);
 int stack_in_order(t_node *stack);
-
+//main_algo.c
+void chunk_sort(t_ps *data);
 
 
 //LIBFT/*.c

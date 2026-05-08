@@ -3,45 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   assigning_chunks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 16:57:08 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 15:05:08 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:00:20 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//How many chunks the orignal list of numbers will be split into 
 void number_of_chunks(t_ps *data)
 {
-	size_t len = data->list_size;
+	size_t len = data->size_of_list;
 	int num_chunks;
 
 	if (len <= 100)
 		num_chunks = 5;
 	else
 		num_chunks = 11;
-	assign_chunk_numbers(data, num_chunks);
+	data->number_of_chunks = num_chunks;
+	data->size_of_chunk = len/num_chunks;
+	assign_chunk_numbers(data);
 	return ;
 }
 
-
-void assign_chunk_numbers(t_ps *data, int num_chunks)
+//To each node assign the chunk number (done at inital pass when in stack_a)
+void assign_chunk_numbers(t_ps *data)
 {
 	size_t len;
-	size_t chunk_size;
-	t_node *current;
-	size_t count;
+	t_node *tmp;
 
-	len = data->list_size;
-	chunk_size = len / num_chunks;
-	current = data->stack_a;
-	count = 0;
-	while (current && count < len)
+	len = data->size_of_list;
+	tmp = data->stack_a;
+	while (tmp &&  len-- > 0)
 	{
-		current->chunk_num = current->idx / chunk_size;
-		current = current->next;
-		count++;
+		tmp->chunk = tmp->idx / data->size_of_chunk;
+		tmp = tmp->next;
 	}
 	return;
 }

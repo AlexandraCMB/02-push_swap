@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   assigning_indices.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 15:05:14 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/08 13:56:59 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Create the indices for each node in stack_a (done at the start of the program)
 void	create_indices(t_ps *data)
 {
 	int	len;
@@ -19,12 +20,12 @@ void	create_indices(t_ps *data)
 	int	*arr;
 	t_node *tmp;
 
-	len = data->list_size;
+	len = data->size_of_list;
 	i = 0;
 	arr = (int *)malloc(len * sizeof(int));
+	tmp = data->stack_a;
 	if (!arr)
 		return ;
-	tmp = data->stack_a;
 	while (i < len)
 	{
 		arr[i] = tmp->num;
@@ -37,6 +38,7 @@ void	create_indices(t_ps *data)
 	return ;
 }
 
+//Parsing through the stack and assigning the correct index to each node (done at the start of the program)
 void	assign_indices(t_node *stack, int *arr, int len)
 {
 	t_node	*head;
@@ -64,6 +66,7 @@ void	assign_indices(t_node *stack, int *arr, int len)
 	return ;
 }
 
+//Bubble sort to sort the array of numbers (done at the start of the program)
 void	bubble_sort(int *arr, int len)
 {
 	int	order_checker;
