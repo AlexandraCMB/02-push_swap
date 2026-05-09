@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_algo.c                                        :+:      :+:    :+:   */
+/*   stuff.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/09 18:02:35 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/09 17:56:23 by brunj            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,12 @@ void chunk_sort(t_ps *data)
 	size_t x = 0;
 	current_chunk = 0;
 
-	// size_t y;
 	while( data->stack_a && data->number_of_chunks > current_chunk  )
 	{
 		if(data->stack_a->chunk == current_chunk)
 		{
 			x++;
-			// y = cost_to_top_a(data)
-
+			calculate_rot_or_rev_rot_b(data);
 			push_b(data);
 			if(data->stack_b && data->stack_b->next && data->stack_b->idx < data->stack_b->next->idx)
 				swap_b(data);
@@ -42,13 +40,53 @@ void chunk_sort(t_ps *data)
 	push_back_from_b(data);
 }
 
-void push_back_from_b(t_ps* data)
+// void optimised_push_all_a(t_ps* data)
+// {
+// 	size_t i = data->size_of_list -1;
+// 	size_t j;
+// 	while(data->stack_b)
+// 	{
+// 		j = cost_to_top_b(data, i);
+// 		if(j < (i/2))
+// 		{
+// 			while(j-- > 0 )
+// 				rot_b(data);
+// 		}
+// 		else
+// 		{
+// 			while(1 + i - j > 0)
+// 			{
+// 				rev_rot_b(data);
+// 				j++;
+// 			}
+// 		}
+// 		push_a(data);
+// 		i--;
+
+// 	}
+// }
+
+
+
+void optimised_push_all_a(t_ps* data)
 {
 	size_t i = data->size_of_list -1;
 	size_t j;
 	while(data->stack_b)
 	{
-		j = cost_to_top_b(data, i);
+
+		calculate_rot_or_rev_rot(data->stack_b)
+		push_a(data);
+		i--;
+
+	}
+}
+
+void calculate_rot_or_rev_rot_b(t_ps *data)
+{
+
+		size_t i = data->size_of_list - 1;
+		size_t j = cost_to_top_b(data, i);
 		if(j < (i/2))
 		{
 			while(j-- > 0 )
@@ -62,12 +100,8 @@ void push_back_from_b(t_ps* data)
 				j++;
 			}
 		}
-		push_a(data);
-		i--;
 
 	}
-}
-
 
 int cost_to_top_b(t_ps *data, size_t num_in_list)
 {
@@ -90,6 +124,11 @@ int cost_to_top_b(t_ps *data, size_t num_in_list)
 }
 
 
+
+
+
+	
+
 int cost_to_top_a(t_ps *data, size_t num_in_list)
 {
 	int cost;
@@ -109,3 +148,4 @@ int cost_to_top_a(t_ps *data, size_t num_in_list)
 	}
 	return cost;
 }
+
