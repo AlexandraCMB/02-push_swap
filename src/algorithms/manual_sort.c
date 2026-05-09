@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manual_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/08 21:17:00 by brunj            ###   ########.fr       */
+/*   Updated: 2026/05/09 16:49:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,25 +116,6 @@ void sort_five(t_ps *data)
 // 	return 1;
 // }
 
-// int cost_to_top_a(t_ps *data, size_t num_in_list)
-// {
-// 	int cost;
-// 	int len;
-// 	t_node *tmp;
-
-	
-// 	cost = 0;
-// 	len = stack_len(data->stack_a);
-// 	tmp = data->stack_a;
-// 	if(len == 1)
-// 		return 0;
-// 	while(tmp->idx != tmp->next->idx && tmp->idx != num_in_list )
-// 	{
-// 		cost += 1;
-// 		tmp = tmp->next;
-// 	}
-// 	return cost;
-// }
 
 //check lentgh of stack - stack to be specified
 // int stack_in_order(t_node *stack)

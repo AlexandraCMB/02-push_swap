@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:33:54 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/09 15:58:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void push_a(t_ps *data)
 	if (!data->stack_b)
 		return ;
 	push(&data->stack_b, &data->stack_a);
+	data->stack_a_size++;
+	data->stack_b_size--;
 	log_op(data, PA);
 	return ;
 }
@@ -43,6 +45,8 @@ void push_b(t_ps *data)
 	if (!data->stack_a)
 		return ;
 	push(&data->stack_a, &data->stack_b);
+	data->stack_a_size--;
+	data->stack_b_size++;
 	log_op(data, PB);
 	return ;
 }

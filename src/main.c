@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/08 14:32:43 by brunj            ###   ########.fr       */
+/*   Updated: 2026/05/09 15:53:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int main (int argc, char **argv)
 	data->stack_b = NULL;
 	data->operations = NULL;
 	data->operations_counter = 0;
-	
+	data->stack_a_size= argc-1;
+	data->stack_b_size = 0;
 	printf(BLUE"\nBefore:\n"RESET);
 	print_stacks(data);
 
@@ -103,19 +104,19 @@ int print_stacks(t_ps *data)
 	{
 		if(a == 0 && b > 0)
 		{
-			printf(PURP"	-	|	%d\n"RESET, tmp_b->num);
+			printf(PURP"	-		|	%d-chunk - %ld\n"RESET, tmp_b->num, tmp_b->chunk );
 			tmp_b=tmp_b->next;
 			b--;
 		}
 		if(a > 0 && b==0)
 		{
-			printf(PURP"	%d	|	-\n"RESET, tmp_a->num);
+			printf(PURP"	%d-chunk - %ld	| -\n"RESET, tmp_a->num, tmp_a->chunk);
 			tmp_a=tmp_a->next;
 			a--;
 		}
 		if(a > 0 && b > 0)
 		{
-			printf(PURP"	%d	|	%d\n"RESET, tmp_a->num, tmp_b->num);
+			printf(PURP"	%d-chunk - %ld	|	%d-chunk - %ld\n"RESET, tmp_a->num, tmp_a->chunk, tmp_b->num, tmp_b->chunk);
 			tmp_a=tmp_a->next;
 			tmp_b=tmp_b->next;
 			a--;

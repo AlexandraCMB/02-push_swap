@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   assigning_chunks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 16:57:08 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/08 14:00:20 by brunj            ###   ########.fr       */
+/*   Updated: 2026/05/09 11:56:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void number_of_chunks(t_ps *data)
 	else
 		num_chunks = 11;
 	data->number_of_chunks = num_chunks;
-	data->size_of_chunk = len/num_chunks;
+	data->size_of_chunk = (data->size_of_list + (data->number_of_chunks - 1)) / data->number_of_chunks;
+
 	assign_chunk_numbers(data);
 	return ;
 }

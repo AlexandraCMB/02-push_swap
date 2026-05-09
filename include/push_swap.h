@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/08 21:25:30 by brunj            ###   ########.fr       */
+/*   Updated: 2026/05/09 15:52:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_ps
 	t_node	*stack_a;
 	t_node	*stack_b;
 	t_node	*operations;
+	size_t	stack_a_size;
+	size_t	stack_b_size;
 	size_t	operations_counter;
 	size_t	size_of_list;
 	size_t	size_of_chunk;
