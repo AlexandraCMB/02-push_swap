@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/09 18:03:00 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/10 12:51:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,11 +139,11 @@ int min_in_stack(t_node *stack, size_t idx);
 int stack_in_order(t_node *stack);
 //main_algo.c
 void chunk_sort(t_ps *data);
-void optimised_push_all_a(t_ps* data);
+void push_back_from_b(t_ps* data);
 int cost_to_top_b(t_ps *data, size_t num_in_list);
+void optimised_next_a_to_top(t_ps* data);
 int cost_to_top_a(t_ps *data, size_t num_in_list);
-void calculate_rot_or_rev_rot_b(t_ps *data);
-void calculate_rot_or_rev_rot_a(t_ps *data);
+
 
 
 void push_back_from_b(t_ps* data);
