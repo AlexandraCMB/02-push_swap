@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 18:35:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 17:38:17 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,5 @@ void swap_b(t_ps *data)
 {
 	swap(&(data->stack_b));
 	log_op(data, SB);
-	return ;
-}
-
-void swap_both(t_ps *data)
-{
-	swap_a(data);
-	swap_b(data);
-	log_op(data, SS);
 	return ;
 }

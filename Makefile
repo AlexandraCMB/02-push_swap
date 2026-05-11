@@ -18,8 +18,8 @@ SRC     = src/main.c \
             src/utilities/printing_op.c \
             src/utilities/freeing.c \
             src/utilities/optimisation.c \
-            src/algorithms/main_algo.c
-
+            src/algorithms/main_algo.c \
+            src/utilities/pre_sort_checks.c
 
 
 OBJ     = $(SRC:src/%.c=objs/%.o)

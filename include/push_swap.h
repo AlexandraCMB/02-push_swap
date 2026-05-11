@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 17:17:33 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:07:12 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ typedef struct s_node
 {
 	int				num;
 	size_t			idx;
-	size_t			chunk;
 	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
@@ -66,35 +65,24 @@ typedef struct s_ps
 	size_t	stack_b_size;
 	size_t	operations_counter;
 	size_t	size_of_list;
-	size_t	size_of_chunk;
-	size_t	number_of_chunks;
-
 }			t_ps;
 
 //MAIN.C
-int 		stack_len(t_node *stack);
 int 		print_stacks(t_ps *data);
 
 // /OPERATIONS/*.c
-//swaps
 void		swap(t_node **stack);
 void		swap_a(t_ps *data);
 void		swap_b(t_ps *data);
-void		swap_both(t_ps *data);
-//pushes
 void		push(t_node **stack_from, t_node **stack_to);
 void		push_a(t_ps *data);
 void		push_b(t_ps *data);
-//rotates up
 void		rot(t_node **stack);
 void		rot_a(t_ps *data);
 void		rot_b(t_ps *data);
-void		rot_both(t_ps *data);
-//rotates down
 void		rev_rot(t_node **stack);
 void		rev_rot_a(t_ps *data);
 void		rev_rot_b(t_ps *data);
-void		rot_both(t_ps *data);
 
 //UTILITES/*.c
 //linked_list.c
@@ -115,15 +103,14 @@ const char	*op_to_str(t_op op);
 void		print_ops(t_ps *data);
 //input_checker.c
 void		input_checker(char *str);
-void int_overflow(long int num);
-//chunk_sort.c
-void		number_of_chunks(t_ps *data);
-void assign_chunk_numbers(t_ps *data);
+void		int_overflow(long int num);
 //freeing.c
 void		free_nodes(t_node *stack);
 //optimisation.c
 void		list_optimisation(t_ps *data);
 int			operation_pair_check( t_node *operation);
+//pre_sort_checks
+int duplicates_in_input(int argc, char **argv);
 
 
 
@@ -145,16 +132,9 @@ size_t	ft_sqrt(size_t nb);
 
 void chunk_sort(t_ps *data);
 void push_back_from_b(t_ps* data);
-int cost_to_top_b(t_ps *data, size_t num_in_list);
-void optimised_next_a_to_top(t_ps* data);
-size_t cost_to_top_up_a(t_ps *data, size_t current_chunk);
-size_t cost_to_top_down_a(t_ps *data, size_t current_chunk);
-
-
-
+size_t cost_to_top_b(t_ps *data, size_t num_in_list);
 void push_back_from_b(t_ps* data);
 
-int cost_to_top_a(t_ps *data, size_t num_in_list);
 
 
 //LIBFT/*.c

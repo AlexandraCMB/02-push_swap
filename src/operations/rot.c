@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 18:04:22 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 17:35:37 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,3 @@ void rot_b(t_ps *data)
 	return ;
 }
 
-//RA&RB
-void rot_both(t_ps *data)
-{
-	rot_a(data);
-	rot_b(data);
-	log_op(data, RR);
-	return ;
-}

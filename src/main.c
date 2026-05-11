@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 13:38:41 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:07:48 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 int main (int argc, char **argv)
 {
 	t_ps *data;
+	if(duplicates_in_input(argc,argv))
+	{
+		printf("Error\n");
+		return 0;
+	}
 
 	//MALLOC
     data = malloc(sizeof(t_ps));
@@ -31,10 +36,8 @@ int main (int argc, char **argv)
 	data->stack_b_size = 0;
 	printf(BLUE"\nBefore:\n"RESET);
 	print_stacks(data);
-
+	
 	create_indices(data);
-	number_of_chunks(data);
-	//DEMO OPERATIONS
 	sort(data);
 	list_optimisation(data);
 	print_ops(data);
@@ -51,47 +54,15 @@ int main (int argc, char **argv)
 	return (1);
 }
 
-//for indices checking
-/* int main (int argc, char **argv)
-{
-	t_node *stack_a;
-
-	stack_a = init_stack(argc, argv);
-	create_indices(stack_a);
-	return (1);
-}
- */
-
-int  stack_len(t_node *stack)
-{
-	int i = 1;
-	t_node *tmp;
-	tmp = stack;
-	if(!stack)
-		return 0;
-	while(tmp->next != stack)
-	{
-		tmp = tmp->next;
-		i++;
-	}
-
-	return i;
-}
 
 int print_stacks(t_ps *data)
 {
 	t_node *tmp_a = data->stack_a;
 	t_node *tmp_b = data->stack_b;
 
-	int a = stack_len(data->stack_a);
-	int b = stack_len(data->stack_b);
+	size_t a = data->stack_a_size;
+	size_t b = data->stack_b_size;
 
-	//checking chunks
-	// printf("DATA INFO\n");
-	// printf("size_of_list - %ld\n", data->size_of_list);
-	// printf("size_of_chunk - %ld\n", data->size_of_chunk);
-	// printf("number_oof_chunks- %ld\n------------------\n\n", data->number_of_chunks);
-	
 	if (a==0 && b ==0)
 	{
 		printf(PURP"A: (empty)	 	B: (empty)\n");
@@ -104,19 +75,19 @@ int print_stacks(t_ps *data)
 	{
 		if(a == 0 && b > 0)
 		{
-			printf(PURP"	-		|	%d-chunk - %ld\n"RESET, tmp_b->num, tmp_b->chunk );
+			printf(PURP"	-		|	%d\n"RESET, tmp_b->num );
 			tmp_b=tmp_b->next;
 			b--;
 		}
 		if(a > 0 && b==0)
 		{
-			printf(PURP"	%d-chunk - %ld	| -\n"RESET, tmp_a->num, tmp_a->chunk);
+			printf(PURP"	%d	|	-\n"RESET, tmp_a->num);
 			tmp_a=tmp_a->next;
 			a--;
 		}
 		if(a > 0 && b > 0)
 		{
-			printf(PURP"	%d-chunk - %ld	|	%d-chunk - %ld\n"RESET, tmp_a->num, tmp_a->chunk, tmp_b->num, tmp_b->chunk);
+			printf(PURP"	%d	|	%d\n"RESET, tmp_a->num, tmp_b->num);
 			tmp_a=tmp_a->next;
 			tmp_b=tmp_b->next;
 			a--;

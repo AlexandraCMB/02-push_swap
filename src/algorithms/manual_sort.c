@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 14:21:26 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 18:08:05 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //Sorting two numbers in A
 void sort(t_ps *data)
 {
+
 	size_t len = data->size_of_list;
 	if (len == 2)
 	{
@@ -58,7 +59,7 @@ void sort_three(t_ps *data)
 
 void sort_five(t_ps *data)
 {
-	while(stack_len(data->stack_a) > 3)
+	while(data->stack_a_size > 3)
 	{
 		if(data->stack_a->idx == 0 || data->stack_a->idx == 1)
 			push_b(data);

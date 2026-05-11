@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rot.c                                          :+:      :+:    :+:   */
+/*   pre_sort_checks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 17:38:39 by abrunjes         ###   ########.fr       */
+/*   Created: 2026/05/11 17:46:35 by abrunjes          #+#    #+#             */
+/*   Updated: 2026/05/11 18:12:37 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-//REVERSE ROTATIO
-void	rev_rot(t_node **stack)
+int duplicates_in_input(int argc, char **argv)
 {
-	if (!(*stack))
-		return ;
-	(*stack) = (*stack)->prev;
-	return ;
+    int x = argc;
+    int i = 1;
+    int j;
+    while(i < x - 1)
+    {
+        j = i+1;
+        while(j < x )
+        {
+            if(argv[i] == argv[j])
+                return 1;
+            j++;
+        }
+        i++;
+    }
+    return 0;
 }
-
-
-void rev_rot_a(t_ps *data)
-{
-	rev_rot(&data->stack_a);
-	log_op(data, RRA);
-	return ;
-}
-
-void rev_rot_b(t_ps *data)
-{
-	rev_rot(&data->stack_b);
-	log_op(data, RRB);
-
-	return ;
-}
-
