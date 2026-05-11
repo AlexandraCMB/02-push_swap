@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 16:49:17 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 17:18:53 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,41 @@
 
 void chunk_sort(t_ps *data)
 {
-	size_t current_chunk;
-	size_t x = 0;
-	size_t cost_up;
-	size_t cost_down;
-	current_chunk = 0;
-
-	push_a(data);
-	push_a(data);
+	size_t x = ft_sqrt(data->size_of_list) * 1.1;
+	size_t i = 0;
 	
-	while( data->stack_a && data->number_of_chunks > current_chunk  )
+	
+	while( data->stack_a )
 	{
-		cost_up = cost_to_top_up_a(data, current_chunk);
-		cost_down = cost_to_top_down_a(data, current_chunk);
-		printf("current chunk: %ld, cost up: %ld, cost down: %ld\n", current_chunk, cost_up, cost_down);
-		if(cost_up <= cost_down)
+		if(data->stack_a->idx <= i)
 		{
-			while(cost_up-- > 0)
-			{
-				rot_a(data);
-			}
+			push_b(data);
+			rot_b(data);
+			print_stacks(data);
+			i++;
+		}
+		else if(data->stack_a->idx <= i + x)
+		{
+			push_b(data);
+			print_stacks(data);
+
+			i++;
 		}
 		else
-		{
-			while(cost_down-- > 0)
-			{
-				rev_rot_a(data);
-			}
-
-		}
-		push_b(data);
-		if(data->stack_b && data->stack_b->next && data->stack_b->idx < data->stack_b->next->idx)
-			swap_b(data);
-		print_stacks(data);
-		
-		x++;
-		if( data->stack_a && x >= data->size_of_chunk )
-		{
-			x = 0;
-			current_chunk++;
-		}
+			rot_a(data);
 
 	}
 	push_back_from_b(data);
+}
+
+size_t	ft_sqrt(size_t nb)
+{
+	size_t	i;
+
+	i = 1;
+	while (i * i < nb)
+		i++;
+	return i;
 }
 
 // void chunk_sort(t_ps *data)

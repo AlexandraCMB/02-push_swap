@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 12:40:29 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 17:17:33 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,11 @@ int max_in_stack(t_node *stack, size_t idx);
 int min_in_stack(t_node *stack, size_t idx);
 int stack_in_order(t_node *stack);
 //main_algo.c
+
+size_t	ft_sqrt(size_t nb);
+
+
+
 void chunk_sort(t_ps *data);
 void push_back_from_b(t_ps* data);
 int cost_to_top_b(t_ps *data, size_t num_in_list);
