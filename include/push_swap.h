@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.dr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 18:07:12 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 21:45:53 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ int duplicates_in_input(int argc, char **argv);
 //manual_sort.c
 void		sort(t_ps *data);
 void		sort_three(t_ps *data);
+void sort_four(t_ps *data);
+
 void		sort_five(t_ps *data);
 int max_in_stack(t_node *stack, size_t idx);
 int min_in_stack(t_node *stack, size_t idx);
@@ -140,5 +142,10 @@ void push_back_from_b(t_ps* data);
 //LIBFT/*.c
 size_t		ft_strlen(const char *s);
 int			ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
+int		word_count(char const *s, char c);
+char		*word_make(char const *s, char c);
+int		word_len(char const *s, char c);
+char		**freedom(char **s, int i);
 
 #endif

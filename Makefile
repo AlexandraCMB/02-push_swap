@@ -7,6 +7,7 @@ SRC     = src/main.c \
             src/algorithms/manual_sort.c \
             src/libft/ft_atoi.c \
             src/libft/ft_strlen.c \
+            src/libft/ft_split.c \
             src/operations/push.c \
             src/operations/swap.c \
             src/operations/rot.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.dr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 18:07:48 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 21:36:53 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,20 @@
 //printing stacks
 int main (int argc, char **argv)
 {
+	
+	char **args;
+
+	if(argc < 2)
+		return 0;
+	if(argc == 2)
+		args = ft_split(argv[1], ' ');
+	else
+		args = argv + 1;
+
+
+	
 	t_ps *data;
-	if(duplicates_in_input(argc,argv))
+	if(duplicates_in_input(argc,args))
 	{
 		printf("Error\n");
 		return 0;
@@ -27,23 +39,24 @@ int main (int argc, char **argv)
     data = malloc(sizeof(t_ps));
 
     //INIT
-    data->stack_a = init_stack(argc, argv);
+    data->stack_a = init_stack(argc, args);
     data->size_of_list = argc - 1; // Assuming init_stack works correctly
 	data->stack_b = NULL;
 	data->operations = NULL;
 	data->operations_counter = 0;
 	data->stack_a_size= argc-1;
 	data->stack_b_size = 0;
-	printf(BLUE"\nBefore:\n"RESET);
-	print_stacks(data);
+	
+	// printf(BLUE"\nBefore:\n"RESET);
+	// print_stacks(data);
 	
 	create_indices(data);
 	sort(data);
 	list_optimisation(data);
 	print_ops(data);
 	
-	printf(TURQ"\nAfter:\n"RESET);
-	print_stacks(data);
+	// printf(TURQ"\nAfter:\n"RESET);
+	// print_stacks(data);
 
 	
 	//FREE

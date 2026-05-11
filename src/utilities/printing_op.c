@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printing_op.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 18:32:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 20:55:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void print_ops(t_ps *data)
     int size = data->operations_counter;
     while (size-- > 0 && tmp != NULL) // Added tmp != NULL for safety
     {
-        printf(GREEN"%s\n"RESET, op_to_str(tmp->num));
+        printf("%s\n", op_to_str(tmp->num));
 		op_count += 1;
 		
         tmp = tmp->next;
     }
-	printf(GREEN"\n ~~ %d operations ~~\n", op_count);
+	// printf(GREEN"\n ~~ %d operations ~~\n", op_count);
 }

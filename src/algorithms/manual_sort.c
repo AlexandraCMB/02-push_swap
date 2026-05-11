@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manual_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 18:08:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 21:12:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void sort(t_ps *data)
 	}
 	else if (len == 3)
 		sort_three(data);
-	// else if (len == 4)
-	// 	printf("\nDo sort_four(data) here\n");
+	else if (len == 4)
+		sort_four(data);
 	else if (len == 5)
 		sort_five(data);
 	else
@@ -79,61 +79,27 @@ void sort_five(t_ps *data)
 	
 }
 
-//comparing if top of stack b is bigger than all of those in stack A (for sorting 5)
-// int max_in_stack(t_node *stack, size_t idx)
-// {
-// 	int len;
-// 	t_node *tmp;
-	
-// 	len = stack_len(stack);
-// 	tmp = stack;
-// 	while(len > 0)
-// 	{
-// 		if(tmp->idx > idx)
-// 			return 0;
-// 		tmp = tmp->next;
-// 		len--;
-// 	}
-
-// 	return 1;
-// }
-
-//comparing if top of stack b is smaller than all of those in stack A (for sorting 5)
-// int min_in_stack(t_node *stack, size_t idx)
-// {
-// 	int len;
-// 	t_node *tmp;
-	
-// 	len = stack_len(stack);
-// 	tmp = stack;
-// 	while(len > 0)
-// 	{
-// 		if(tmp->idx < idx)
-// 			return 0;
-// 		tmp = tmp->next;
-// 		len--;
-// 	}
-
-// 	return 1;
-// }
-
-
-//check lentgh of stack - stack to be specified
-// int stack_in_order(t_node *stack)
-// {
-// 	int len;
-// 	t_node *tmp;
-	
-// 	len = stack_len(stack);
-// 	tmp = stack;
-// 	while(len > 1)
-// 	{
-// 		if(tmp->idx > tmp->next->idx)
-// 			return 0;
-// 		tmp = tmp->next;
-// 		len--;
-// 	}
-// 	printf("here\n");
-
-// 	return 1;
-// }
+void sort_four(t_ps *data)
+{
+	push_b(data);
+	sort_three(data);
+	if(data->stack_b->idx == 0)
+		push_b(data);
+	if(data->stack_b->idx == 1)
+	{
+		push_b(data);
+		swap_a(data);
+	}
+	if(data->stack_b->idx == 2)
+	{
+		rot_a(data);
+		push_b(data);
+		swap_a(data);
+		rev_rot_a(data);
+	}	
+	if(data->stack_b->idx == 3)
+	{
+		push_b(data);
+		rot_a(data);
+	}
+}

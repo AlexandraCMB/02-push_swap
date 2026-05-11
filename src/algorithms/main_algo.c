@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 17:30:07 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/11 20:47:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ void chunk_sort(t_ps *data)
 		{
 			push_b(data);
 			rot_b(data);
-			print_stacks(data);
 			i++;
 		}
 		else if(data->stack_a->idx <= i + x)
 		{
 			push_b(data);
-			print_stacks(data);
-
 			i++;
 		}
 		else
