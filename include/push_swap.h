@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/10 12:51:59 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/11 12:40:29 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,8 @@ void chunk_sort(t_ps *data);
 void push_back_from_b(t_ps* data);
 int cost_to_top_b(t_ps *data, size_t num_in_list);
 void optimised_next_a_to_top(t_ps* data);
-int cost_to_top_a(t_ps *data, size_t num_in_list);
+size_t cost_to_top_up_a(t_ps *data, size_t current_chunk);
+size_t cost_to_top_down_a(t_ps *data, size_t current_chunk);
 
 
 

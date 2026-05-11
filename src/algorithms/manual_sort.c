@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manual_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/09 16:49:59 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/11 14:21:26 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void sort(t_ps *data)
 	}
 	else if (len == 3)
 		sort_three(data);
-	else if (len == 4)
-		printf("\nDo sort_four(data) here\n");
+	// else if (len == 4)
+	// 	printf("\nDo sort_four(data) here\n");
 	else if (len == 5)
 		sort_five(data);
 	else

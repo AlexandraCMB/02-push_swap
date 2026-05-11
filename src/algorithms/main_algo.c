@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/10 16:37:05 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/11 14:57:20 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,36 @@ void chunk_sort(t_ps *data)
 {
 	size_t current_chunk;
 	size_t x = 0;
+	size_t cost_up;
+	size_t cost_down;
 	current_chunk = 0;
 
-	// size_t y;
 	while( data->stack_a && data->number_of_chunks > current_chunk  )
 	{
-
-		size_t len = data->stack_a_size;
-		while( len -- > data->stack_a_size/2 - 1)
+		cost_up = cost_to_top_up_a(data, current_chunk);
+		cost_down = cost_to_top_down_a(data, current_chunk);
+		printf("current chunk: %ld, cost up: %ld, cost down: %ld\n", current_chunk, cost_up, cost_down);
+		if(cost_up <= cost_down)
 		{
-			t_node *tmp = data->stack_a;
-			size_t cost = 0
-			cost++;
-			if(tmp->chunk = current_chuck)
-				break;
-				
+			while(cost_up-- > 0)
+			{
+				rot_a(data);
+			}
 		}
-
-		
-		
-		if(data->stack_a->chunk == current_chunk)
-		{
-			x++;
-			push_b(data);
-			if(data->stack_b && data->stack_b->next && data->stack_b->idx < data->stack_b->next->idx)
-				swap_b(data);
-		}	
 		else
-			rot_a(data);
+		{
+			while(cost_down-- > 0)
+			{
+				rev_rot_a(data);
+			}
+
+		}
+		push_b(data);
+		if(data->stack_b && data->stack_b->next && data->stack_b->idx < data->stack_b->next->idx)
+			swap_b(data);
+		print_stacks(data);
+		
+		x++;
 		if( data->stack_a && x >= data->size_of_chunk )
 		{
 			x = 0;
@@ -100,61 +102,49 @@ int cost_to_top_b(t_ps *data, size_t num_in_list)
 	return cost;
 }
 
-void optimised_next_a_to_top(t_ps* data)
-{
-	size_t i = data->stack_a_size -1;
-	size_t j;
-
-	j = cost_to_top_a(data, i);
-	if(j < (i/2))
-	{
-		while(j-- > 0 )
-			rot_a(data);
-	}
-	else
-	{
-		while(1 + i - j > 0)
-		{
-			rev_rot_a(data);
-			j++;
-		}
-	}
-	push_b(data);
-}
-
-
 
 size_t cost_to_top_up_a(t_ps *data, size_t current_chunk)
 {
 	t_node *tmp = data->stack_a;
 	size_t len = 0;
 	size_t cost = 0;
+	int found = 0;
 	
-	while(len++ <(data->stack_a_size/2) + 1)
+	while(len <(data->stack_a_size/2) + 1)
 	{
-		if( tmp->chunk == current_current)
+		if( tmp->chunk == current_chunk)
+		{
 			cost = len;
+			found = 1;
+			break;
+		}
 		tmp = tmp->next;
+		len++;
 	}
-	return cost
+	if(!found)
+		return 9999;
+	return cost;
 }
 
-
-
-
-cost_to_top_down_a(t_ps *data, size_t current_chunk)
+size_t cost_to_top_down_a(t_ps *data, size_t current_chunk)
 {
 	t_node *tmp = data->stack_a->prev;
 	size_t len = 0;
 	size_t cost = 0;
-	size_t x = 0;
-	if(data->stack_a_size % 2 = 0)
-		x = 
-	while(len++ <(data->stack_a_size/2) + )
+	int found = 0;
+	while(len <((data->stack_a_size + 1)/2) -1 )
 	{
-		if( tmp->chunk == current_current)
+		if( tmp->chunk == current_chunk)
+		{
 			cost = len;
+			found = 1;
+			break;
+		}
+		len++;
 		tmp = tmp->prev;
 	}
-	return cost
+	if(!found)
+		return 9999;
+	
+	return cost;
 }
