@@ -6,19 +6,14 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 17:38:17 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:51:03 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**
- * sa expain ops here
- */
-//checker is 1 if sa or sb not s
 void	swap(t_node **stack)
 {
-
 	if (!*stack || !((*stack)->next))
 		return ;
 	if ((*stack)->next == (*stack)->prev)
@@ -36,14 +31,14 @@ void	swap(t_node **stack)
 	return ;
 }
 
-void swap_a(t_ps *data)
+void	swap_a(t_ps *data)
 {
 	swap(&(data->stack_a));
 	log_op(data, SA);
 	return ;
 }
 
-void swap_b(t_ps *data)
+void	swap_b(t_ps *data)
 {
 	swap(&(data->stack_b));
 	log_op(data, SB);

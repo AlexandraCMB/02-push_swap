@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/09 15:58:11 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/12 14:50:28 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	push(t_node **stack_from, t_node **stack_to)
 	return ;
 }
 
-void push_a(t_ps *data)
+void	push_a(t_ps *data)
 {
 	if (!data->stack_b)
 		return ;
@@ -40,7 +40,7 @@ void push_a(t_ps *data)
 	return ;
 }
 
-void push_b(t_ps *data)
+void	push_b(t_ps *data)
 {
 	if (!data->stack_a)
 		return ;

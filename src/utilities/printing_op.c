@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   printing_op.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 20:55:38 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/12 14:54:52 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//printing operations to data->operations list, then print them at the end of the program
-void log_op(t_ps *data, t_op op)
+//Printing operationss to data->operations list
+//Then function to print them at the end of the program
+void	log_op(t_ps *data, t_op op)
 {
 	insert_at_back(&data->operations, op);
 	data->operations_counter += 1;
-	return;
+	return ;
 }
 
-const char *op_to_str(t_op op)
+const char	*op_to_str(t_op op)
 {
-	char *ops[11];
+	char	*ops[11];
+
 	ops[0] = "sa";
 	ops[1] = "sb";
 	ops[2] = "ss";
@@ -36,22 +38,22 @@ const char *op_to_str(t_op op)
 	ops[10] = "rrr";
 	return (ops[op]);
 }
-void print_ops(t_ps *data)
+
+void	print_ops(t_ps *data)
 {
-	int op_count= 0;
-    if (!data || !data->operations)
-    {
-        printf(RED"\nNo operations to print.\n"RESET);
-        return;
-    }
-    t_node *tmp = data->operations;
-    int size = data->operations_counter;
-    while (size-- > 0 && tmp != NULL) // Added tmp != NULL for safety
-    {
-        printf("%s\n", op_to_str(tmp->num));
+	int		op_count;
+	t_node	*tmp;
+	int		size;
+
+	op_count = 0;
+	tmp = data->operations;
+	size = data->operations_counter;
+	if (!data || !data->operations)
+		return ;
+	while (size-- > 0 && tmp != NULL)
+	{
+		ft_printf("%s\n", op_to_str(tmp->num));
 		op_count += 1;
-		
-        tmp = tmp->next;
-    }
-	// printf(GREEN"\n ~~ %d operations ~~\n", op_count);
+		tmp = tmp->next;
+	}
 }

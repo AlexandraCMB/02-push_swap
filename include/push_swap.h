@@ -3,33 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.dr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 21:45:53 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:59:20 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-//man console_codes
-# define RED   "\033[31m"
-# define GREEN   "\033[32m"
-# define YELLOW   "\033[33m"
-# define BLUE  "\033[34m"
-# define PURP  "\033[35m"
-# define TURQ   "\033[36m"
-# define BROWN   "\033[37m"
-
-# define RESET "\033[0m"
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-#include <limits.h>
+# include <limits.h>
 
 typedef enum e_op
 {
@@ -55,7 +44,7 @@ typedef struct s_node
 	struct s_node	*prev;
 }					t_node;
 
-//struct containing both stacks and operation list 
+//Struct containing both stacks and operation list 
 typedef struct s_ps
 {
 	t_node	*stack_a;
@@ -68,9 +57,12 @@ typedef struct s_ps
 }			t_ps;
 
 //MAIN.C
-int 		print_stacks(t_ps *data);
+int			print_stacks(t_ps *data);
+void		initialise_data(t_ps *data, int i, int argc, char **arg_v);
+void		push_swap(t_ps *data);
+void		parse_and_initialise_data(t_ps *data, int argc, char **argv);
 
-// /OPERATIONS/*.c
+//OPERATIONS
 void		swap(t_node **stack);
 void		swap_a(t_ps *data);
 void		swap_b(t_ps *data);
@@ -84,11 +76,11 @@ void		rev_rot(t_node **stack);
 void		rev_rot_a(t_ps *data);
 void		rev_rot_b(t_ps *data);
 
-//UTILITES/*.c
+//UTILITES
 //linked_list.c
 t_node		*create_node(int num);
 t_node		*insert_at_back(t_node **head, int num);
-t_node		*init_stack(int argc, char **argv);
+t_node		*init_stack(int i, char **args);
 t_node		*insert_at_beginning(t_node **head, t_node *newnode);
 void		remove_next_node(t_node *node);
 
@@ -96,7 +88,7 @@ void		remove_next_node(t_node *node);
 void		create_indices(t_ps *data);
 void		assign_indices(t_node *stack, int *arr, int len);
 void		bubble_sort(int *arr, int len);
-int			in_order(int *arr, int len);
+int			bubble_sort_in_order(int *arr, int len);
 //printing_op.c
 void		log_op(t_ps *data, t_op op);
 const char	*op_to_str(t_op op);
@@ -106,46 +98,47 @@ void		input_checker(char *str);
 void		int_overflow(long int num);
 //freeing.c
 void		free_nodes(t_node *stack);
+void		free_split(int i, char **arg_v);
+void		free_all(t_ps *data);
+
 //optimisation.c
 void		list_optimisation(t_ps *data);
 int			operation_pair_check( t_node *operation);
 //pre_sort_checks
-int duplicates_in_input(int argc, char **argv);
+int			duplicates_in_input(int i, int argc, char **arg_v);
 
-
-
-
-
-//ALGORITHMS/*.c
-//manual_sort.c
+//ALGORITHMS
+//manual_sort
 void		sort(t_ps *data);
 void		sort_three(t_ps *data);
-void sort_four(t_ps *data);
+void		sort_four(t_ps *data);
 
 void		sort_five(t_ps *data);
-int max_in_stack(t_node *stack, size_t idx);
-int min_in_stack(t_node *stack, size_t idx);
-int stack_in_order(t_node *stack);
-//main_algo.c
+int			max_in_stack(t_node *stack, size_t idx);
+int			min_in_stack(t_node *stack, size_t idx);
+int			stack_in_order(t_node *stack);
+//main_algo
+size_t		ft_sqrt(size_t nb);
+void		chunk_sort(t_ps *data);
+void		push_back_from_b(t_ps *data);
+size_t		cost_to_top_b(t_ps *data, size_t num_in_list);
+void		push_back_from_b(t_ps *data);
 
-size_t	ft_sqrt(size_t nb);
-
-
-
-void chunk_sort(t_ps *data);
-void push_back_from_b(t_ps* data);
-size_t cost_to_top_b(t_ps *data, size_t num_in_list);
-void push_back_from_b(t_ps* data);
-
-
-
-//LIBFT/*.c
+//LIBFT
 size_t		ft_strlen(const char *s);
 int			ft_atoi(const char *str);
-char	**ft_split(char const *s, char c);
-int		word_count(char const *s, char c);
+char		**ft_split(char const *s, char c);
+int			word_count(char const *s, char c);
 char		*word_make(char const *s, char c);
-int		word_len(char const *s, char c);
+int			word_len(char const *s, char c);
 char		**freedom(char **s, int i);
+int			ft_strcmp(char *s1, char *s2);
+int			ft_found_x_x(unsigned long int nb, const char fmt);
+int			ft_found_ptr(void *ptr);
+int			ft_found_s(char *s);
+int			ft_found_d_i(int nb);
+int			ft_found_u(unsigned int nb);
+int			ft_specifier(const char fmt, va_list ap);
+int			ft_printf(const char *format, ...);
 
 #endif

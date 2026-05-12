@@ -5,22 +5,25 @@ NAME    = push_swap
 
 SRC     = src/main.c \
             src/algorithms/manual_sort.c \
+            src/algorithms/main_algo.c \
             src/libft/ft_atoi.c \
             src/libft/ft_strlen.c \
             src/libft/ft_split.c \
+            src/libft/ft_strcmp.c \
+			src/libft/ft_printf.c \
+			src/libft/ft_printf_utils.c \
             src/operations/push.c \
             src/operations/swap.c \
             src/operations/rot.c \
             src/operations/rev_rot.c \
-            src/utilities/assigning_chunks.c \
             src/utilities/assigning_indices.c \
+            src/utilities/freeing.c \
+            src/utilities/initialising.c \
             src/utilities/input_checker.c \
             src/utilities/linked_list.c \
-            src/utilities/printing_op.c \
-            src/utilities/freeing.c \
             src/utilities/optimisation.c \
-            src/algorithms/main_algo.c \
-            src/utilities/pre_sort_checks.c
+            src/utilities/printing_op.c \
+
 
 
 OBJ     = $(SRC:src/%.c=objs/%.o)

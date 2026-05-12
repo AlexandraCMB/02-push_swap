@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:30:07 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/03/25 18:21:00 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:20:21 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	countm;
+	int			countm;
 	long int	num;
 
 	countm = 1;
@@ -34,6 +34,6 @@ int	ft_atoi(const char *nptr)
 		num = 10 * num + (*nptr - '0');
 		nptr++;
 	}
-	int_overflow(countm*num);
-	return (countm*num);
+	int_overflow(countm * num);
+	return (countm * num);
 }

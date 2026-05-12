@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.dr>          +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 21:45:25 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:19:38 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "push_swap.h"
 
 char	**ft_split(char const *s, char c)
 {
@@ -41,8 +41,8 @@ char	**ft_split(char const *s, char c)
 	return (mpointer);
 }
 
-//size to malloc for **mpointer
- int	word_count(char const *s, char c)
+//Size to malloc for **mpointer
+int	word_count(char const *s, char c)
 {
 	int	check;
 	int	words;
@@ -63,7 +63,7 @@ char	**ft_split(char const *s, char c)
 	return (words);
 }
 
-//s here is actuall word. not delimieter!!
+//S here is word not delimiter
 char	*word_make(char const *s, char c)
 {
 	int		letters;

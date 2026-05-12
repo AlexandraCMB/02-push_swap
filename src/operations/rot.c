@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 15:38:17 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 17:35:37 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:51:27 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	rot(t_node **stack)
 }
 
 //RA
-void rot_a(t_ps *data)
+void	rot_a(t_ps *data)
 {
 	if (!data->stack_a)
 		return ;
@@ -32,7 +32,7 @@ void rot_a(t_ps *data)
 }
 
 //RB
-void rot_b(t_ps *data)
+void	rot_b(t_ps *data)
 {
 	if (!data->stack_b)
 		return ;
@@ -40,4 +40,3 @@ void rot_b(t_ps *data)
 	log_op(data, RB);
 	return ;
 }
-

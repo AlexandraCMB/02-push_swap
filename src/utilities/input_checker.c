@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   input_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42london.com    +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/04/14 19:20:12 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/12 14:41:53 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void input_checker(char *str)
+void	input_checker(char *str)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
+
 	len = ft_strlen(str);
-	while(len--)
+	while (len--)
 	{
 		i = 0;
 		while (str[i] == ' ' )
@@ -35,20 +36,18 @@ void input_checker(char *str)
 		}
 		str++;
 	}
-	return;
+	return ;
 }
 
-void int_overflow(long int num)
+void	int_overflow(long int num)
 {
-	int x;
-	x = (int)num;
+	int	x;
 
-	// printf("int x is %d\n",x);
-	// printf("long int num is %ld\n",num);
-	if((long int)x != num )
-	{	
+	x = (int)num;
+	if ((long int)x != num)
+	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	return;
+	return ;
 }

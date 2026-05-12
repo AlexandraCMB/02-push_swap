@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brunj <brunj@student.42.fr>                +#+  +:+       +#+        */
+/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/07 21:44:31 by brunj            ###   ########.fr       */
+/*   Updated: 2026/05/12 14:38:43 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,34 +71,28 @@ t_node	*insert_at_back(t_node **head, int num)
 	return (*head);
 }
 
-t_node	*init_stack(int argc, char **argv)
+t_node	*init_stack(int i, char **args)
 {
-	int		i;
 	t_node	*stack;
 
-	i = 1;
 	stack = NULL;
-	if (argc > 1)
+	while (args && args[i])
 	{
-		while (i < argc)
-		{
-			input_checker(argv[i]);
-			stack = insert_at_back(&stack, ft_atoi(argv[i]));
-			i++;
-		}
+		input_checker(args[i]);
+		stack = insert_at_back(&stack, ft_atoi(args[i]));
+		i++;
 	}
 	return (stack);
 }
 
-
-void remove_next_node(t_node *node)
+void	remove_next_node(t_node *node)
 {
-	t_node *to_remove;
+	t_node	*to_remove;
 
 	if (!node || !node->next)
-		return;
+		return ;
 	to_remove = node->next;
 	node->next = to_remove->next;
 	to_remove->next->prev = node;
 	free(to_remove);
-}	
+}

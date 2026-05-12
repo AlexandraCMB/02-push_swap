@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pre_sort_checks.c                                  :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/11 17:46:35 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/11 18:12:37 by abrunjes         ###   ########.fr       */
+/*   Created: 2026/05/12 11:55:49 by abrunjes          #+#    #+#             */
+/*   Updated: 2026/05/12 14:19:36 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int duplicates_in_input(int argc, char **argv)
+int	ft_strcmp(char *s1, char *s2)
 {
-    int x = argc;
-    int i = 1;
-    int j;
-    while(i < x - 1)
-    {
-        j = i+1;
-        while(j < x )
-        {
-            if(argv[i] == argv[j])
-                return 1;
-            j++;
-        }
-        i++;
-    }
-    return 0;
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
