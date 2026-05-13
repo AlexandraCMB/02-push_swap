@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 16:19:55 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 18:51:23 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ typedef struct s_ps
 }			t_ps;
 
 //MAIN.C
-int			print_stacks(t_ps *data);
-void		initialise_data(t_ps *data, int i, int argc, char **arg_v);
 void		push_swap(t_ps *data);
-void		parse_and_initialise_data(t_ps *data, int argc, char **argv);
 
 //OPERATIONS
 void		swap(t_node **stack);
@@ -96,21 +93,26 @@ void		log_op(t_ps *data, t_op op);
 const char	*op_to_str(t_op op);
 void		print_ops(t_ps *data);
 //input_checker.c
-int		input_checker(char *str);
-void	int_overflow(t_ps *data, long int num);
-// void		int_overflow(long int num);
-void check_ints(t_ps *data);
+void check_inputs(int argc, char **argv);
+int invalid_input(char **tmp);
+int	input_checker(char *str);
+int	duplicates_in_input(char **tmp);
+int	int_overflow(long int num);
+
 
 //freeing.c
 void		free_nodes(t_node *stack);
-void		free_split(int i, char **arg_v);
+// void		free_split(int i, char **arg_v);
 void		free_all(t_ps *data);
+//intitialisng
+void	pars_inputs(t_ps *data, int argc, char **argv);
+void	initialise_data(t_ps *data, int i, int argc, char **arg_v);
+
 
 //optimisation.c
 void		list_optimisation(t_ps *data);
 int			operation_pair_check( t_node *operation);
-//pre_sort_checks
-int			duplicates_in_input(int i, int argc, char **arg_v);
+
 
 //ALGORITHMS
 //manual_sort

@@ -19,7 +19,7 @@ SRC			= src/main.c \
 			src/utilities/assigning_indices.c \
 			src/utilities/freeing.c \
 			src/utilities/initialising.c \
-			src/utilities/input_checker.c \
+			src/utilities/check_inputs.c \
 			src/utilities/linked_list.c \
 			src/utilities/optimisation.c \
 			src/utilities/printing_op.c \

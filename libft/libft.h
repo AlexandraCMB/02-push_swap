@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 18:20:41 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 14:10:36 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 18:33:28 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_atoi(const char *nptr);
+long int		ft_atoi(const char *nptr);
 
 // MEMORY FUNCTIONS
 void	ft_bzero(void *s, size_t n);

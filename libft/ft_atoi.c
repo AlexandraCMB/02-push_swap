@@ -6,19 +6,18 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:53:08 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 16:20:37 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 19:15:41 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../include/push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
 	int	countm;
 	long int	num;
 
-	printf("here");
 	countm = 1;
 	num = 0;
 	if (!*nptr)
@@ -36,6 +35,5 @@ int	ft_atoi(const char *nptr)
 		num = 10 * num + (*nptr - '0');
 		nptr++;
 	}
-
 	return (countm * num);
 }
