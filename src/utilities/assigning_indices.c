@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:39:14 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 19:25:20 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	create_indices(t_ps *data)
 	bubble_sort(arr, len);
 	assign_indices(tmp, arr, len);
 	free(arr);
+	size_t z = 0;
+	
+	printf("--- Stack A: Full Index Report ---\n");
+	while (tmp && z < data->size_of_list)
+	{
+	    printf("Pos [%ld] -> Value: %d | Index: %ld\n", z, tmp->num, tmp->idx);
+	    tmp = tmp->next; // Move to the next node
+	    z++;
+	}
 	return ;
 }
 
