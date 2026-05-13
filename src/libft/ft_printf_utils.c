@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 16:31:55 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:56:34 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:45:33 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_found_d_i(int nb)
 	return (len);
 }
 
-int	ft_found_u(unsigned int nb)
+int	ft_found_u(int nb)
 {
 	int	len;
 	int	num;
