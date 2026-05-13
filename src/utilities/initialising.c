@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:46:35 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 16:46:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 17:05:14 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	parse_and_initialise_data(t_ps *data, int argc, char **argv)
 {
 	int		i;
 	char	**arg_v;
-
+	t_node	*tmp;
+	
 	i = 1;
 	if (argc < 2)
 		return ;
