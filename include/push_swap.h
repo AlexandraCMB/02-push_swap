@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:59:20 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 13:03:51 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <stdarg.h>
+#include <stdint.h>
 
 typedef enum e_op
 {
@@ -140,5 +142,6 @@ int			ft_found_d_i(int nb);
 int			ft_found_u(unsigned int nb);
 int			ft_specifier(const char fmt, va_list ap);
 int			ft_printf(const char *format, ...);
+int			ft_putchar(int c);
 
 #endif

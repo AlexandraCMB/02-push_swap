@@ -1,0 +1,9 @@
+*.code_workspace
+*output
+*.o
+*.a
+.vscode
+a.out
+wARMACHINE/*
+lIBFTTESTER.ignore
+libft.so

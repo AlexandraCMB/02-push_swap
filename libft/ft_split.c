@@ -6,11 +6,16 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:19:38 by abrunjes         ###   ########.fr       */
+/*   Updated: 2025/11/12 16:22:07 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+
+static int		word_count(char const *s, char c);
+static char		*word_make(char const *s, char c);
+static int		word_len(char const *s, char c);
+static char		**freedom(char **s, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -41,8 +46,8 @@ char	**ft_split(char const *s, char c)
 	return (mpointer);
 }
 
-//Size to malloc for **mpointer
-int	word_count(char const *s, char c)
+//size to malloc fo **mpointer
+static int	word_count(char const *s, char c)
 {
 	int	check;
 	int	words;
@@ -63,8 +68,8 @@ int	word_count(char const *s, char c)
 	return (words);
 }
 
-//S here is word not delimiter
-char	*word_make(char const *s, char c)
+//s here is actuall word. not delimieter!!
+static char	*word_make(char const *s, char c)
 {
 	int		letters;
 	char	*mchar;
@@ -85,7 +90,7 @@ char	*word_make(char const *s, char c)
 }
 
 //modified strlen in otder to use in word_make
-int	word_len(char const *s, char c)
+static int	word_len(char const *s, char c)
 {
 	int	len;
 
@@ -98,7 +103,7 @@ int	word_len(char const *s, char c)
 	return (len);
 }
 
-char	**freedom(char **s, int i)
+static char	**freedom(char **s, int i)
 {
 	while (i > 0)
 		free(s[--i]);

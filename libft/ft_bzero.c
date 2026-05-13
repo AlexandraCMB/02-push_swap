@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abrunjes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 17:38:43 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:19:46 by abrunjes         ###   ########.fr       */
+/*   Created: 2025/10/24 16:09:26 by abrunjes          #+#    #+#             */
+/*   Updated: 2025/10/25 15:32:02 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void	*s, size_t n)
 {
-	int	i;
+	unsigned char	*t;
+	size_t			i;
 
+	t = (unsigned char *)s;
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		t[i] = 0;
 		i++;
-	return (i);
+	}
 }

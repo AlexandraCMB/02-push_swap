@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:46:35 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:53:41 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 12:57:29 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	parse_and_initialise_data(t_ps *data, int argc, char **argv)
 		arg_v = argv;
 	if (duplicates_in_input(i, argc, arg_v))
 	{
-		write(2,("Error\n",6);
+		write(2,"Error\n",6);
 		exit(EXIT_FAILURE);
 	}
 	initialise_data(data, i, argc, arg_v);
