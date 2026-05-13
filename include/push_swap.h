@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 13:03:51 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:19:55 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <string.h>
 # include <limits.h>
 # include <stdarg.h>
-#include <stdint.h>
+# include <stdint.h>
 
 typedef enum e_op
 {
@@ -96,8 +96,11 @@ void		log_op(t_ps *data, t_op op);
 const char	*op_to_str(t_op op);
 void		print_ops(t_ps *data);
 //input_checker.c
-void		input_checker(char *str);
-void		int_overflow(long int num);
+int		input_checker(char *str);
+void	int_overflow(t_ps *data, long int num);
+// void		int_overflow(long int num);
+void check_ints(t_ps *data);
+
 //freeing.c
 void		free_nodes(t_node *stack);
 void		free_split(int i, char **arg_v);
@@ -125,23 +128,5 @@ void		chunk_sort(t_ps *data);
 void		push_back_from_b(t_ps *data);
 size_t		cost_to_top_b(t_ps *data, size_t num_in_list);
 void		push_back_from_b(t_ps *data);
-
-//LIBFT
-size_t		ft_strlen(const char *s);
-int			ft_atoi(const char *str);
-char		**ft_split(char const *s, char c);
-int			word_count(char const *s, char c);
-char		*word_make(char const *s, char c);
-int			word_len(char const *s, char c);
-char		**freedom(char **s, int i);
-int			ft_strcmp(char *s1, char *s2);
-int			ft_found_x_x(unsigned long int nb, const char fmt);
-int			ft_found_ptr(void *ptr);
-int			ft_found_s(char *s);
-int			ft_found_d_i(int nb);
-int			ft_found_u(unsigned int nb);
-int			ft_specifier(const char fmt, va_list ap);
-int			ft_printf(const char *format, ...);
-int			ft_putchar(int c);
 
 #endif

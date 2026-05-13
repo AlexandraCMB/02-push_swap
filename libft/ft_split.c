@@ -6,16 +6,11 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2025/11/12 16:22:07 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 13:39:20 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		word_count(char const *s, char c);
-static char		*word_make(char const *s, char c);
-static int		word_len(char const *s, char c);
-static char		**freedom(char **s, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -47,7 +42,7 @@ char	**ft_split(char const *s, char c)
 }
 
 //size to malloc fo **mpointer
-static int	word_count(char const *s, char c)
+int	word_count(char const *s, char c)
 {
 	int	check;
 	int	words;
@@ -69,7 +64,7 @@ static int	word_count(char const *s, char c)
 }
 
 //s here is actuall word. not delimieter!!
-static char	*word_make(char const *s, char c)
+char	*word_make(char const *s, char c)
 {
 	int		letters;
 	char	*mchar;
@@ -90,7 +85,7 @@ static char	*word_make(char const *s, char c)
 }
 
 //modified strlen in otder to use in word_make
-static int	word_len(char const *s, char c)
+int	word_len(char const *s, char c)
 {
 	int	len;
 
@@ -103,7 +98,7 @@ static int	word_len(char const *s, char c)
 	return (len);
 }
 
-static char	**freedom(char **s, int i)
+char	**freedom(char **s, int i)
 {
 	while (i > 0)
 		free(s[--i]);

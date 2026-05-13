@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:49:21 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:08:52 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	chunk_sort(t_ps *data)
 			rot_a(data);
 	}
 	push_back_from_b(data);
+	return ;
 }
 
 size_t	ft_sqrt(size_t nb)
@@ -73,6 +74,7 @@ void	push_back_from_b(t_ps *data)
 		push_a(data);
 		i--;
 	}
+	return ;
 }
 
 size_t	cost_to_top_b(t_ps *data, size_t num_in_list)

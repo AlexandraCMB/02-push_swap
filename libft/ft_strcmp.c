@@ -6,11 +6,11 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 11:55:49 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:19:36 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 13:29:12 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

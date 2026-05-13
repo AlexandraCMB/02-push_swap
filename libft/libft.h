@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 18:20:41 by abrunjes          #+#    #+#             */
-/*   Updated: 2025/11/17 13:06:47 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:10:36 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1, char *s2);
 
 // PART 2 FUNCTIONS
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -68,6 +69,12 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+//FT_SPLIT - added in static functions for push_swap
+int		word_count(char const *s, char c);
+char	*word_make(char const *s, char c);
+int		word_len(char const *s, char c);
+char	**freedom(char **s, int i);
 
 // BONUS
 t_list	*ft_lstnew(void *content);

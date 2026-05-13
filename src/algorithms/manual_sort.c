@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:47:48 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 15:07:25 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,22 +90,22 @@ void	sort_four(t_ps *data)
 	push_b(data);
 	sort_three(data);
 	if (data->stack_b->idx == 0)
-		push_b(data);
-	if (data->stack_b->idx == 1)
+		push_a(data);
+	else if (data->stack_b->idx == 1)
 	{
-		push_b(data);
+		push_a(data);
 		swap_a(data);
 	}
-	if (data->stack_b->idx == 2)
+	else if (data->stack_b->idx == 2)
 	{
 		rot_a(data);
-		push_b(data);
+		push_a(data);
 		swap_a(data);
 		rev_rot_a(data);
 	}
-	if (data->stack_b->idx == 3)
+	else if (data->stack_b->idx == 3)
 	{
-		push_b(data);
+		push_a(data);
 		rot_a(data);
 	}
 	return ;

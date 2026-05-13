@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 21:25:13 by brunj             #+#    #+#             */
-/*   Updated: 2026/05/12 14:37:45 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:08:02 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	list_optimisation(t_ps *data)
 		}
 		tmp = tmp->next;
 	}
+	return ;
 }
 
 int	operation_pair_check(t_node *operation)

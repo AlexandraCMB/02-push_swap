@@ -6,11 +6,12 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:54:52 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 14:07:56 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../ft_printf/ft_printf.h"
 
 //Printing operationss to data->operations list
 //Then function to print them at the end of the program
@@ -56,4 +57,5 @@ void	print_ops(t_ps *data)
 		op_count += 1;
 		tmp = tmp->next;
 	}
+	return ;
 }

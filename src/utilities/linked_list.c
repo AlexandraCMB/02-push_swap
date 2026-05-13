@@ -6,11 +6,12 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/12 14:38:43 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/13 16:19:33 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../libft/libft.h"
 
 t_node	*create_node(int num)
 {
@@ -74,11 +75,13 @@ t_node	*insert_at_back(t_node **head, int num)
 t_node	*init_stack(int i, char **args)
 {
 	t_node	*stack;
-
+	
 	stack = NULL;
 	while (args && args[i])
 	{
-		input_checker(args[i]);
+
+		if(!input_checker(args[i]))
+			return(NULL);
 		stack = insert_at_back(&stack, ft_atoi(args[i]));
 		i++;
 	}
@@ -95,4 +98,5 @@ void	remove_next_node(t_node *node)
 	node->next = to_remove->next;
 	to_remove->next->prev = node;
 	free(to_remove);
+	return ;
 }
