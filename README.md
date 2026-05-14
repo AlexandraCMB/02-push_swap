@@ -11,7 +11,6 @@
 			- [Final State (After: ra)](#final-state-after-ra)
 	- [Data stuctures](#data-stuctures)
 	- [Algorithm](#algorithm)
-	- [Pseudocode](#pseudocode)
 - [Instructions](#instructions)
 - [Resources](#resources)
 - [Notes](#notes)
@@ -105,14 +104,23 @@ I started ambitiously was wanting to do a recursive two pivot quick sort. But be
 
 A window is calculated based on the numbers of numbers we are sorting. We iterate through the list one at a time with a counter starting at 0. If the current element is smaller than the counter we **pb** and **rb**. If it's between the sliding window we **pb**. If it's bigger than the window we just **ra**. 
 
-This means the smallest are pushed to the bottom of the staack whilst the largest stay at the top. As we iterate through the list the what is small or large increases so a 'K' like shape appears in stack_b. The beauty of this is when sending back to stack_a the numbers we need are closest to the edge and so minimal rotations required to send them back.
+This means the smallest are pushed to the bottom of the staack whilst the largest stay at the top. As we iterate through the list the what is small or large increases so a **'K'** like shape appears in `stack_b`. The beauty of this is when sending back to `stack_a` the numbers we need are closest to the edge and so minimal rotations required to send them back.
 
-This second sweep back to stavkk_s         
-## Pseudocode
-1. Initilise stacks - stack_a with unsorted list and stack_b null
-2. 
+When sending back to stack_a it is calulated wheere the next element required is in `stack_b`, bottom or top half and rotated or reveresed rotated round accordindly to the top before sending back to `stack_a`.
+
 # Instructions
- - Eval time!
+
+To create programme:`make` and then to run it `./push_swap <your inputs>`.
+
+To run **z** numbers between **x** and **y** use:
+```
+ARG=$(shuf -i x-y -n z | tr '\n' ' ') ; ./push_swap $ARG
+```
+Add 
+```
+| wc -l
+```
+To count the lines and hence numbers of operations used.
 
 # Resources
 
@@ -129,4 +137,11 @@ This second sweep back to stavkk_s
 # Notes
 - set up linked list and operations - overview of a few approaches
 - use inbuild linked lists .. from Andrei ... man k queue - - all inbuilt to build framework
-- 
+
+Journal of ISI. (2025). A Unified Framework for Theoretical and Experimental Evaluation of Classical and Modern Sorting Algorithms in Real-Time Systems. Journal of ISI.
+
+PMC. (2026). Wall-L merge sort: A tunable and adaptive sorting algorithm for diverse computing environments. PMC.
+
+Stanford Computer Graphics Laboratory. (n.d.). Optimizing Search Strategies in k-d Trees. Stanford University.
+
+Taillard, É. D. (2023). Design of Heuristic Algorithms for Hard Optimization. Springer International Publishing. https://doi.org/10.1007/978-3-031-13714-3
