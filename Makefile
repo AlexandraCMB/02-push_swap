@@ -17,7 +17,7 @@ SRC			= src/main.c \
 			src/operations/rot.c \
 			src/operations/rev_rot.c \
 			src/utilities/assigning_indices.c \
-			src/utilities/freeing.c \
+			src/utilities/freeing_and_exiting.c \
 			src/utilities/initialising.c \
 			src/utilities/check_inputs.c \
 			src/utilities/linked_list.c \

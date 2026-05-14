@@ -6,13 +6,17 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:46:35 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 14:09:31 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:11:23 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/libft.h"
 
+static void		initialise_data(t_ps *data, int argc, char **arg_v);
+
+//Similar to checking inputs - but initialises to data struct
+//And only valid inputs that have passed checking phase
 void	pars_inputs(t_ps *data, int argc, char **argv)
 {
 	char	**arg_v;
@@ -33,7 +37,8 @@ void	pars_inputs(t_ps *data, int argc, char **argv)
 	return ;
 }
 
-void	initialise_data(t_ps *data, int argc, char **arg_v)
+//Parsing all valid and sorted inputs to data struct
+static void	initialise_data(t_ps *data, int argc, char **arg_v)
 {
 	data->stack_a = init_stack(arg_v);
 	data->size_of_list = argc - 1;

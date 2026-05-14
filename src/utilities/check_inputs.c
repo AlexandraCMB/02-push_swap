@@ -6,13 +6,20 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 14:13:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:02:52 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/libft.h"
 
+static int	invalid_input(char **tmp);
+static int	input_checker(char *str);
+static int	duplicates_in_input(char **tmp);
+static int	int_overflow(long int num);
+
+//Funciton to check validity of inputs - first sorts parsing of inputs
+//i.e. if ./p_s "" or without
 void	check_inputs(int argc, char **argv)
 {
 	char	**tmp;
@@ -20,7 +27,7 @@ void	check_inputs(int argc, char **argv)
 
 	split = 0;
 	if (argc < 2)
-		exit(0);
+		exit_message(0);
 	if ((argv[1][0] == '\0' && argc == 2))
 		exit_message(1);
 	else if (argc == 2)
@@ -41,7 +48,9 @@ void	check_inputs(int argc, char **argv)
 	return ;
 }
 
-int	invalid_input(char **tmp)
+//calling on below functions checks vlaidity of inputs
+// ie numbers only (w/ +/-), integer range and no duplicates
+static int	invalid_input(char **tmp)
 {
 	int	i;
 	int	err;
@@ -66,7 +75,8 @@ int	invalid_input(char **tmp)
 	return (err);
 }
 
-int	input_checker(char *str)
+//Is input a digit with wither -/+ before
+static int	input_checker(char *str)
 {
 	int	i;
 	int	len;
@@ -90,7 +100,8 @@ int	input_checker(char *str)
 	return (0);
 }
 
-int	duplicates_in_input(char **tmp)
+//Duplicate inputs not allowed
+static int	duplicates_in_input(char **tmp)
 {
 	int	i;
 	int	j;
@@ -110,7 +121,8 @@ int	duplicates_in_input(char **tmp)
 	return (0);
 }
 
-int	int_overflow(long int num)
+//Inputs outside of [INT_MIN, INT_MAX]
+static int	int_overflow(long int num)
 {
 	int	x;
 

@@ -6,11 +6,15 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:12 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 13:43:34 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 14:49:56 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	assign_indices(t_node *stack, int *arr, int len);
+static void	bubble_sort(int *arr, int len);
+static int	bubble_sort_in_order(int *arr, int len);
 
 //Create the indices for each node in stack_a (done at the start of the program)
 void	create_indices(t_ps *data)
@@ -40,7 +44,7 @@ void	create_indices(t_ps *data)
 
 //Parsing through the stack and assigning the correct 
 //index to each node (done at the start of the program)
-void	assign_indices(t_node *stack, int *arr, int len)
+static void	assign_indices(t_node *stack, int *arr, int len)
 {
 	t_node	*head;
 	int		entry;
@@ -68,7 +72,7 @@ void	assign_indices(t_node *stack, int *arr, int len)
 }
 
 //Bubble sort to sort the array of numbers (done at the start of the program)
-void	bubble_sort(int *arr, int len)
+static void	bubble_sort(int *arr, int len)
 {
 	int	order_checker;
 	int	tmp;
@@ -94,7 +98,7 @@ void	bubble_sort(int *arr, int len)
 	return ;
 }
 
-int	bubble_sort_in_order(int *arr, int len)
+static int	bubble_sort_in_order(int *arr, int len)
 {
 	int	i;
 

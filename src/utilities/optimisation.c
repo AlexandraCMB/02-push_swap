@@ -6,12 +6,16 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 21:25:13 by brunj             #+#    #+#             */
-/*   Updated: 2026/05/13 14:08:02 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:11:34 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	operation_pair_check(t_node *operation);
+
+//If RA && RB or RRA & RRB called simulaneously 
+//then RR or RRR respectively called instead 
 void	list_optimisation(t_ps *data)
 {
 	int		i;
@@ -38,7 +42,7 @@ void	list_optimisation(t_ps *data)
 	return ;
 }
 
-int	operation_pair_check(t_node *operation)
+static int	operation_pair_check(t_node *operation)
 {
 	if ((operation->num == RA && operation->next->num == RB)
 		|| (operation->num == RB && operation->next->num == RA))

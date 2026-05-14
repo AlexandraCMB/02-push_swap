@@ -6,11 +6,13 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 13:44:45 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 14:34:40 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	push_swap(t_ps *data);
 
 int	main(int argc, char **argv)
 {
@@ -26,7 +28,7 @@ int	main(int argc, char **argv)
 	return (1);
 }
 
-void	push_swap(t_ps *data)
+static void	push_swap(t_ps *data)
 {
 	create_indices(data);
 	sort(data);

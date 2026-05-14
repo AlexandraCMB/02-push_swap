@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 15:07:25 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 16:04:33 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ void	sort(t_ps *data)
 	size_t	len;
 
 	len = data->size_of_list;
+	// printf("len is %ld\n",len);
+	if (len == 1)
+	{
+		free_all(data);
+		exit_message(0);
+	}
 	if (len == 2)
 	{
 		if (data->stack_a->num > data->stack_a->next->num)
@@ -30,7 +36,7 @@ void	sort(t_ps *data)
 	else if (len == 5)
 		sort_five(data);
 	else
-		chunk_sort(data);
+		butterfly_sort(data);
 	return ;
 }
 

@@ -6,15 +6,16 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 19:54:58 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 14:07:56 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 15:18:16 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../ft_printf/ft_printf.h"
 
-//Printing operationss to data->operations list
-//Then function to print them at the end of the program
+static const char	*op_to_str(t_op op);
+
+//Logging operations in linked list
 void	log_op(t_ps *data, t_op op)
 {
 	insert_at_back(&data->operations, op);
@@ -22,7 +23,27 @@ void	log_op(t_ps *data, t_op op)
 	return ;
 }
 
-const char	*op_to_str(t_op op)
+//Printing operations to stdout - by iteration through operations list
+void	print_ops(t_ps *data)
+{
+	t_node	*tmp;
+	int		size;
+
+	tmp = data->operations;
+	size = data->operations_counter;
+	if (!data || !data->operations)
+		return ;
+	while (size-- > 0 && tmp != NULL)
+	{
+		ft_printf("%s\n", op_to_str(tmp->num));
+		tmp = tmp->next;
+	}
+	return ;
+}
+
+//Array of strings to define the ops simplified with use of enum.
+//No safety implemented since function can't call outside bounds.
+static const char	*op_to_str(t_op op)
 {
 	char	*ops[11];
 
@@ -38,24 +59,4 @@ const char	*op_to_str(t_op op)
 	ops[9] = "rrb";
 	ops[10] = "rrr";
 	return (ops[op]);
-}
-
-void	print_ops(t_ps *data)
-{
-	int		op_count;
-	t_node	*tmp;
-	int		size;
-
-	op_count = 0;
-	tmp = data->operations;
-	size = data->operations_counter;
-	if (!data || !data->operations)
-		return ;
-	while (size-- > 0 && tmp != NULL)
-	{
-		ft_printf("%s\n", op_to_str(tmp->num));
-		op_count += 1;
-		tmp = tmp->next;
-	}
-	return ;
 }
