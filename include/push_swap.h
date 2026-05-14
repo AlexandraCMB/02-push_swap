@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 18:51:23 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 14:18:15 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void		rev_rot_b(t_ps *data);
 
 //UTILITES
 //linked_list.c
-t_node		*create_node(int num);
+//STATIC t_node		*create_node(int num);
 t_node		*insert_at_back(t_node **head, int num);
-t_node		*init_stack(int i, char **args);
+t_node		*init_stack( char **args);
 t_node		*insert_at_beginning(t_node **head, t_node *newnode);
 void		remove_next_node(t_node *node);
 
@@ -92,21 +92,21 @@ int			bubble_sort_in_order(int *arr, int len);
 void		log_op(t_ps *data, t_op op);
 const char	*op_to_str(t_op op);
 void		print_ops(t_ps *data);
-//input_checker.c
-void check_inputs(int argc, char **argv);
-int invalid_input(char **tmp);
-int	input_checker(char *str);
-int	duplicates_in_input(char **tmp);
-int	int_overflow(long int num);
+//check_inputs
+void		check_inputs(int argc, char **argv);
+int			invalid_input(char **tmp);
+int			input_checker(char *str);
+int			duplicates_in_input(char **tmp);
+int			int_overflow(long int num);
+void		exit_message(int x);
 
-
-//freeing.c
+//freeing and exiting
 void		free_nodes(t_node *stack);
-// void		free_split(int i, char **arg_v);
+void		free_split(char **arg_v);
 void		free_all(t_ps *data);
 //intitialisng
-void	pars_inputs(t_ps *data, int argc, char **argv);
-void	initialise_data(t_ps *data, int i, int argc, char **arg_v);
+void		pars_inputs(t_ps *data, int argc, char **argv);
+void		initialise_data(t_ps *data, int argc, char **arg_v);
 
 
 //optimisation.c

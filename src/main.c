@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:56:18 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 18:50:11 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:44:45 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_ps	*data;
 
-	//check inputs (no matter how data is input check them ie numbers/int overflow etc - if fail - exit)
 	check_inputs(argc, argv);
 	data = malloc(sizeof(t_ps));
 	if (!data)
@@ -26,7 +25,6 @@ int	main(int argc, char **argv)
 	free_all(data);
 	return (1);
 }
-
 
 void	push_swap(t_ps *data)
 {

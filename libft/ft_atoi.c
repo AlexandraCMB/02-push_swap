@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 11:53:08 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 19:15:41 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:39:21 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 long int	ft_atoi(const char *nptr)
 {
-	int	countm;
+	int			countm;
 	long int	num;
 
 	countm = 1;

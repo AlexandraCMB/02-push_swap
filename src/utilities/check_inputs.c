@@ -6,73 +6,64 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 19:16:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 14:13:05 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/libft.h"
 
-void check_inputs(int argc, char **argv)
+void	check_inputs(int argc, char **argv)
 {
 	char	**tmp;
+	int		split;
 
-	if (argc < 2 || (argv[1][0] == '\0' && argc == 2))
-	{
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
+	split = 0;
+	if (argc < 2)
+		exit(0);
+	if ((argv[1][0] == '\0' && argc == 2))
+		exit_message(1);
 	else if (argc == 2)
+	{
 		tmp = ft_split(argv[1], ' ');
+		split = 1;
+	}
 	else
-		tmp = argv + 1;//FISH
-	int z = 0;
-	while(tmp[z])
+		tmp = argv + 1;
+	if (invalid_input(tmp))
 	{
-		printf("tmp[%d] - %s\n",z,tmp[z]);
-		z++;
+		if (split)
+			free_split(tmp);
+		exit_message(1);
 	}
-	if(invalid_input(tmp))
-	{
-		// free_split(tmp);//FISH
-		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE);
-	}
+	if (split)
+		free_split(tmp);
 	return ;
-	
 }
 
-
-int invalid_input(char **tmp)
+int	invalid_input(char **tmp)
 {
-	int i = 0;
-	int err = 0;
-	while(tmp[i])
+	int	i;
+	int	err;
+
+	i = 0;
+	err = 0;
+	while (tmp[i])
 	{
-		if(input_checker(tmp[i]))
-		{
+		if (input_checker(tmp[i]))
 			err = 1;
-			printf("input_check flag\n");
-		}
 		i++;
 	}
 	i = 0;
-	while(tmp[i])
+	while (tmp[i])
 	{
-		if(int_overflow(ft_atoi(tmp[i])))
-		{
+		if (int_overflow(ft_atoi(tmp[i])))
 			err = 1;
-			printf("int_overflow flag\n");
-		}
 		i++;
 	}
-	if(duplicates_in_input(tmp))
-	{
+	if (duplicates_in_input(tmp))
 		err = 1;
-		printf("duplicates_in_input flag\n");
-	}
-	printf("err is %d\n", err);
-	return(err);
+	return (err);
 }
 
 int	input_checker(char *str)
@@ -96,13 +87,13 @@ int	input_checker(char *str)
 		}
 		str++;
 	}
-	return (0) ;
+	return (0);
 }
 
 int	duplicates_in_input(char **tmp)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (tmp[i] && tmp[i + 1])

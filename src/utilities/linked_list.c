@@ -6,14 +6,17 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 18:25:05 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 17:47:00 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/14 14:17:03 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "../libft/libft.h"
 
-t_node	*create_node(int num)
+static t_node	*create_node(int num);
+
+
+static t_node	*create_node(int num)
 {
 	t_node	*newnode;
 
@@ -72,11 +75,13 @@ t_node	*insert_at_back(t_node **head, int num)
 	return (*head);
 }
 
-t_node	*init_stack(int i, char **args)
+t_node	*init_stack(char **args)
 {
 	t_node	*stack;
-	
+	int		i;
+
 	stack = NULL;
+	i = 0;
 	while (args && args[i])
 	{
 		stack = insert_at_back(&stack, ft_atoi(args[i]));
