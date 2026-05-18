@@ -103,7 +103,7 @@ We iterate through the list one at a time with a counter starting at 0.
 * If the index is between the sliding window we **pb**
 * If it is large than the window we just **ra**. 
 
-This pushes smaller numbers toward the bottom of `stack_b` while larger ones stay near the top. As the counter increases, a **"K-like" or "Butterfly" shape** forms in `stack_b`. 
+This pushes smaller numbers toward the bottom of `stack_b` while larger ones stay near the top. As the counter increases, a **K-like or Butterfly wing shape** forms in `stack_b`. 
 
 The beauty of this structure is that when it is time to push elements back to `stack_a`, the exact numbers we need are always sitting very close to either the top or bottom edge of `stack_b`. The program checks whether the required element is in the top or bottom half, applies the minimal amount of rotations (`rb` or `rrb`) to bring it to the top, and pushes it back home to `stack_a`.
 
