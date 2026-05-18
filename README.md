@@ -1,5 +1,5 @@
-*This project has been created as part of the 42 curriculum abrunjes*
-- [Description](#description)
+*This project has been created as part of the 42 curriculum abrunjes.*
+- [Description](#descript	ion)
 	- [Rules](#rules)
 	- [Data structures](#data-structures)
 	- [Algorithm](#algorithm)
@@ -34,7 +34,7 @@ Rotate downwards (bottom of stack goes to top):
 
 ### Valid Inputs
 
-The data parsed to the programe must be valid or `Error` and a new line is printed to stderr and the program doesn't run. Inputs must be integer values not exceeding the range of int type. Inputs cannot include letters. For example `./push_swap one 2 3` returns error.
+The data parsed to the program must be valid or `Error` and a new line is printed to stderr and the program doesn't run. Inputs must be integer values not exceeding the range of int type. Inputs cannot include letters. For example `./push_swap one 2 3` returns error.
 
 ### Example with valid inputs
 
@@ -81,8 +81,8 @@ The data parsed to the programe must be valid or `Error` and a new line is print
 
 
 ## Data structures
-The program uses interconnected stucts to manages the stacks and operations. They are:
-1. `t_node` which is our double linked list node used to create stacks. Contains the number and it's index and pointers to previous and next node.
+The program uses interconnected structs to manages the stacks and operations. They are:
+1. `t_node` which is our double linked list node used to create stacks. Contains the number and its index and pointers to previous and next node.
 2. `t_ps` program state - contains the stacks, the operation list, the size of both stacks, a counter for the operations and total number of inputs.
    
    
@@ -91,7 +91,7 @@ In order to have a better grasp of complex data structures, I decided that my st
 
 ## Algorithm
 
-I started ambitiously wanting to do a recursive two pivot quick sort. However, between starting and finishing this project 42 London closed down, I moved to Paris and didn't touch code for 6 weeks whilst doing so. As such I have unitlised a simple yet efficient algorithm, the 'Butterfly Sort'.
+I started ambitiously wanting to do a recursive two pivot quick sort. However, between starting and finishing this project 42 London closed down, I moved to Paris and didn't touch code for 6 weeks whilst doing so. As such I have untilised a simple yet efficient algorithm, the 'Butterfly Sort'.
 
 A chunk/window is calculated based on the total amount of numbers ($x$) we are sorting. 
 
@@ -101,7 +101,7 @@ Window~Size =1.4~\sqrt{x}
 We iterate through the list one at a time with a counter starting at 0.
 * If the current element's index is smaller than the counter we **pb** and **rb**.
 * If the index is between the sliding window we **pb**
-* If it is large than the window we just **ra**. 
+* If it is larger than the window we just **ra**. 
 
 This pushes smaller numbers toward the bottom of `stack_b` while larger ones stay near the top. As the counter increases, a **K-like or Butterfly wing shape** forms in `stack_b`. 
 
