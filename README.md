@@ -1,5 +1,5 @@
 *This project has been created as part of the 42 curriculum abrunjes.*
-- [Description](#descript	ion)
+- [Description](#description)
 	- [Rules](#rules)
 	- [Data structures](#data-structures)
 	- [Algorithm](#algorithm)
