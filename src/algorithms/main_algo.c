@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 18:15:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 16:37:27 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/18 14:06:22 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	butterfly_sort(t_ps *data)
 	size_t	range;
 	size_t	i;
 
-	range = ft_sqrt(data->size_of_list) * 1.4;
+	range = ft_sqrt(data->size_of_list);
 	i = 0;
 	while (data->stack_a)
 	{

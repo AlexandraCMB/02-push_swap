@@ -1,25 +1,16 @@
 *This project has been created as part of the 42 curriculum abrunjes*
-- [Decription](#decription)
+- [Description](#description)
 	- [Rules](#rules)
-		- [Operations](#operations)
-		- [Valid Inputs](#valid-inputs)
-		- [Example with valid inputs](#example-with-valid-inputs)
-			- [Initial State](#initial-state)
-			- [After: pb](#after-pb)
-			- [After: ra](#after-ra)
-			- [After: pa](#after-pa)
-			- [Final State (After: ra)](#final-state-after-ra)
-	- [Data stuctures](#data-stuctures)
+	- [Data structures](#data-structures)
 	- [Algorithm](#algorithm)
 - [Instructions](#instructions)
 - [Resources](#resources)
-- [Notes](#notes)
 
-# Decription
-In this project I created a programe `push_swap` which sorts a list of unique integers into accending order, subject to rules below. The programme returns the operations in the order they were done in.  I implement an adapted two-pivot quicksort alrogrithm to do this.
+# Description
+In this project I created a program `push_swap` which sorts a list of unique integers into ascending order subject to rules below. The program returns the operations in the order they were implemented. I used a simple 'K-Sort' or 'Butterfly Sort' as I called it. Further explanation below.
 
 ## Rules
-We have two stacks, `stack_a` and `stack_b`. At the beginning, `stack_a` contains the unsorted list of integers, and `stack_b` is empty. The goal is to implement an algorithm (or a combination of algorithms) to sort the list using only the operations at our disposal.The operations used to sort the numbers are printed in order to stdout.
+We have two stacks, `stack_a` and `stack_b`. At the beginning, `stack_a` contains the unsorted list of integers, and `stack_b` is empty. The goal is to implement an algorithm (or a combination of algorithms) to sort the list using only the operations at our disposal. The operations used to sort the numbers are printed in order to stdout.
 
 ### Operations
 Swap first two elements of:
@@ -33,21 +24,21 @@ Push element from one stack to another:
 
 Rotate upwards (top of stack goes to bottom):
 - ra - stack_a
-- ra - stack_b 
+- rb - stack_b 
 - rr - both  stacks <br>
 
 Rotate downwards (bottom of stack goes to top):
 - rra - stack_a
-- rra - stack_b 
+- rrb - stack_b 
 - rrr - both  stacks <br>
 
 ### Valid Inputs
 
-The data parsed to the programe must be valid or `Error\n` is printed to stderr and the programme doens't run. Inputs must be integer values not exceding the range of int type. Inputs can't have any letters in nor be typed words.
+The data parsed to the programe must be valid or `Error` and a new line is printed to stderr and the program doesn't run. Inputs must be integer values not exceeding the range of int type. Inputs cannot include letters. For example `./push_swap one 2 3` returns error.
 
 ### Example with valid inputs
 
-`./push_swap 3 2 1 2`
+`./push_swap 4 3 1 2`
 
 #### Initial State
 
@@ -89,59 +80,65 @@ The data parsed to the programe must be valid or `Error\n` is printed to stderr 
 | 4 | |
 
 
-## Data stuctures
-The programme uses interconnected stuctss to manange the stacks and operations. They are:
+## Data structures
+The program uses interconnected stucts to manages the stacks and operations. They are:
 1. `t_node` which is our double linked list node used to create stacks. Contains the number and it's index and pointers to previous and next node.
-2. `t_ps` programme state - contains the stacks, the operation list, the size of both stacks, a counter for the operations and total number of inputs.
+2. `t_ps` program state - contains the stacks, the operation list, the size of both stacks, a counter for the operations and total number of inputs.
    
    
-In order to have a better grasp of complex data structures, I decided that my stacks would be initialised as **circular doubly-linked lists**. This make the code look messy at points but the process of creating, adding, removing, rotating and swapping was good fun and an important learning curve. Of course with a circular linked list, rotations are very simple (move head back or forward) whilse the swaps are more like doing surgery on a mouse. <br>
+In order to have a better grasp of complex data structures, I decided that my stacks would be initialised as **circular doubly-linked lists**. This make the code look messy at points but the process of creating, adding, removing, rotating and swapping was good fun and an important learning curve. Of course with a circular linked list, rotations are very simple (move head back or forward) whilst the swaps are more like doing surgery on a mouse. <br>
 
 
 ## Algorithm
 
-I started ambitiously was wanting to do a recursive two pivot quick sort. But between starting and finishing this project 42 London closed down, I moved to Paris and didn't touch code for 6 weeks whilst doing so. As such I have a simple yet very efficient algorithm. 
+I started ambitiously wanting to do a recursive two pivot quick sort. However, between starting and finishing this project 42 London closed down, I moved to Paris and didn't touch code for 6 weeks whilst doing so. As such I have unitlised a simple yet efficient algorithm, the 'Butterfly Sort'.
 
-A window is calculated based on the numbers of numbers we are sorting. We iterate through the list one at a time with a counter starting at 0. If the current element is smaller than the counter we **pb** and **rb**. If it's between the sliding window we **pb**. If it's bigger than the window we just **ra**. 
+A chunk/window is calculated based on the total amount of numbers ($x$) we are sorting. 
 
-This means the smallest are pushed to the bottom of the staack whilst the largest stay at the top. As we iterate through the list the what is small or large increases so a **'K'** like shape appears in `stack_b`. The beauty of this is when sending back to `stack_a` the numbers we need are closest to the edge and so minimal rotations required to send them back.
+```math 
+Window~Size =1.4~\sqrt{x}
+```
+We iterate through the list one at a time with a counter starting at 0.
+* If the current element's index is smaller than the counter we **pb** and **rb**.
+* If the index is between the sliding window we **pb**
+* If it is large than the window we just **ra**. 
 
-When sending back to stack_a it is calulated wheere the next element required is in `stack_b`, bottom or top half and rotated or reveresed rotated round accordindly to the top before sending back to `stack_a`.
+This pushes smaller numbers toward the bottom of `stack_b` while larger ones stay near the top. As the counter increases, a **"K-like" or "Butterfly" shape** forms in `stack_b`. 
 
+The beauty of this structure is that when it is time to push elements back to `stack_a`, the exact numbers we need are always sitting very close to either the top or bottom edge of `stack_b`. The program checks whether the required element is in the top or bottom half, applies the minimal amount of rotations (`rb` or `rrb`) to bring it to the top, and pushes it back home to `stack_a`.
+
+### Performance & Benchmarks
+
+The program has been optimised to comfortably pass requirements.
+
+| Number of Integers | 42 Benchmark | My Performance | Points Awarded |
+| :--- | :--- | :--- | :--- |
+| **3 values** | Max 3 operations | $\le 2$ | 5 / 5 |
+| **5 values** | Max 12 operations | $\le 11$| 5 / 5 |
+| **100 values** | Less than 700 ops | $\le 613$ | 5 / 5 (Max Points) |
+| **500 values** | Less than 5500 ops | $\le 5260$ | 5 / 5 (Max Points) |
+
+_Note: Performance averages are calculated using external bash script._
 # Instructions
 
-To create programme:`make` and then to run it `./push_swap <your inputs>`.
+To create program: `make` and then to run it with `./push_swap <your inputs>`.
 
 To run **z** numbers between **x** and **y** use:
 ```
-ARG=$(shuf -i x-y -n z | tr '\n' ' ') ; ./push_swap $ARG
+ARG=$(shuf -i x-y -n z | tr '\n' ' ') ; ./push_swap $ARG | wc -l
 ```
-Add 
-```
-| wc -l
-```
-To count the lines and hence numbers of operations used.
-
+The output is the number of operations used to sort the list.
 # Resources
 
-1. [On Sorting with a Network of Two Stacks](https://drops.dagstuhl.de/storage/01oasics/oasics-vol075-atmos2019/OASIcs.ATMOS.2019.3/OASIcs.ATMOS.2019.3.pdf)
-4. [Doubly linked list](https://www.geeksforgeeks.org/c/doubly-linked-list-in-c/)
-5. [Makefile Tutorial](https://github.com/gleal42/Makefile-Tutorial)
-6. [GH_Push_swap - madebypixel02](https://github.com/madebypixel02/push_swap)
-7. [GH_Push_swap - shinckel](https://github.com/shinckel/push_swap)
-8. [Medium Post - Ulysse Gerkens](https://medium.com/@ulysse.gks/push-swap-in-less-than-4200-operations-c292f034f6c0)
-3. [Medium Post - Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
-2. [Medium Post - Oduwole Dare](https://medium.com/@oduwoledare/42-push-swap-explained-psuedocodes-ba8108339556)
-	
 
-# Notes
-- set up linked list and operations - overview of a few approaches
-- use inbuild linked lists .. from Andrei ... man k queue - - all inbuilt to build framework
+1. [Doubly linked list](https://www.geeksforgeeks.org/c/doubly-linked-list-in-c/)
+2.  [Makefile Tutorial](https://github.com/gleal42/Makefile-Tutorial)
+3. [GH_Push_swap - madebypixel02](https://github.com/madebypixel02/push_swap)
+4. [GH_Push_swap - shinckel](https://github.com/shinckel/push_swap)
+5. [GH - K Sort - Azer Sioud](https://github.com/AzerSD/ksort-push_swap/tree/master/src)
+6.  [Medium Post - K Sort - Sylvain Maitre](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
+7. [Medium Post - Recursive Algo - Ulysse Gerkens](https://medium.com/@ulysse.gks/push-swap-in-less-than-4200-operations-c292f034f6c0)
+8. [Medium Post - Set Up - Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+9. [Visualiser - Niimphu](https://github.com/Niimphu/push_swap_visualiser)
 
-Journal of ISI. (2025). A Unified Framework for Theoretical and Experimental Evaluation of Classical and Modern Sorting Algorithms in Real-Time Systems. Journal of ISI.
-
-PMC. (2026). Wall-L merge sort: A tunable and adaptive sorting algorithm for diverse computing environments. PMC.
-
-Stanford Computer Graphics Laboratory. (n.d.). Optimizing Search Strategies in k-d Trees. Stanford University.
-
-Taillard, É. D. (2023). Design of Heuristic Algorithms for Hard Optimization. Springer International Publishing. https://doi.org/10.1007/978-3-031-13714-3
+AI Usage - AI was used to clarify concepts, explore algorithms and help with planning execution. It was never used to generate code.
