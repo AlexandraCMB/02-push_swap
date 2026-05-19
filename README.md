@@ -136,7 +136,7 @@ The output is the number of operations used to sort the list.
 3. [GH_Push_swap - madebypixel02](https://github.com/madebypixel02/push_swap)
 4. [GH_Push_swap - shinckel](https://github.com/shinckel/push_swap)
 5. [GH - K Sort - Azer Sioud](https://github.com/AzerSD/ksort-push_swap/tree/master/src)
-6.  [Medium Post - K Sort - Sylvain Maitre](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
+6. [Medium Post - K Sort - Sylvain Maitre](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
 7. [Medium Post - Recursive Algo - Ulysse Gerkens](https://medium.com/@ulysse.gks/push-swap-in-less-than-4200-operations-c292f034f6c0)
 8. [Medium Post - Set Up - Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 9. [Visualiser - Niimphu](https://github.com/Niimphu/push_swap_visualiser)
