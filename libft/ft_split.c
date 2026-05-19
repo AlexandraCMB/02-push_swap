@@ -6,11 +6,12 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/13 13:39:20 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 13:09:15 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../include/push_swap.h"
 
 char	**ft_split(char const *s, char c)
 {
@@ -19,6 +20,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	wc = word_count(s, c);
+	if(wc == 0)
+		exit_message(1);
 	mpointer = malloc(sizeof(char *) * (wc + 1));
 	if (!s || !(mpointer))
 		return (NULL);
