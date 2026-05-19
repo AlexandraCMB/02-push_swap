@@ -3,3 +3,5 @@ checker_linux
 objs
 checker_linux
 push_swap
+*.o
+*.a
