@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 15:44:25 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 15:11:10 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:27:55 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void		swap_b(t_ps *data);
 void		create_indices(t_ps *data);
 //check_inputs
 void		check_inputs(int argc, char **argv);
+//check_inputs2
+void		no_num_found(char *str);
 //freeing and exiting
 void		free_split(char **arg_v);
 void		free_all(t_ps *data);

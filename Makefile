@@ -20,6 +20,7 @@ SRC			= src/main.c \
 			src/utilities/freeing_and_exiting.c \
 			src/utilities/initialising.c \
 			src/utilities/check_inputs.c \
+			src/utilities/check_inputs2.c \
 			src/utilities/linked_list.c \
 			src/utilities/optimisation.c \
 			src/utilities/printing_op.c \

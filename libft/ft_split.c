@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/19 13:09:15 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:23:32 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	wc = word_count(s, c);
-	if(wc == 0)
-		exit_message(1);
 	mpointer = malloc(sizeof(char *) * (wc + 1));
 	if (!s || !(mpointer))
 		return (NULL);
@@ -63,6 +61,8 @@ int	word_count(char const *s, char c)
 			check = 1;
 		s++;
 	}
+	if (words == 0)
+		exit_message(1);
 	return (words);
 }
 
