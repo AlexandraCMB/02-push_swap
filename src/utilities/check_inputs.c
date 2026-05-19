@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 15:02:52 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:07:54 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,10 @@ static int	input_checker(char *str)
 {
 	int	i;
 	int	len;
-
+	int	num_found;
+	
 	len = ft_strlen(str);
+	num_found = 0;
 	while (len--)
 	{
 		i = 0;
@@ -91,12 +93,16 @@ static int	input_checker(char *str)
 			i++;
 		while (str[i])
 		{
+			if(str[i] >= '0' || str[i] <= '9')
+				num_found = 1;
 			if (str[i] < '0' || str[i] > '9')
 				return (1);
 			i++;
 		}
 		str++;
 	}
+	if(num_found == 0)
+		exit_message(1);
 	return (0);
 }
 
