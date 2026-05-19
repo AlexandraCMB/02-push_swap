@@ -6,11 +6,13 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/19 12:10:28 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 16:09:12 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	list_not_in_order(t_ps *data);
 
 //Sorting two numbers in A
 void	sort(t_ps *data)
@@ -18,7 +20,7 @@ void	sort(t_ps *data)
 	size_t	len;
 
 	len = data->size_of_list;
-	if (len == 1)
+	if (len == 1 || list_not_in_order(data) == 1)
 	{
 		free_all(data);
 		exit_message(0);
@@ -114,4 +116,19 @@ void	sort_four(t_ps *data)
 		rot_a(data);
 	}
 	return ;
+}
+
+static int	list_not_in_order(t_ps *data)
+{
+	int	i;
+
+	i = data->size_of_list;
+	while (i > 0)
+	{
+		if (data->stack_a->idx > data->stack_a->next->idx)
+			return (1);
+		data->stack_a = data->stack_a->next;
+		i++;
+	}
+	return (0);
 }
