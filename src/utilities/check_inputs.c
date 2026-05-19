@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 16:39:06 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/19 14:27:05 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 14:41:22 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ static int	input_checker(char *str)
 	int	len;
 
 	len = ft_strlen(str);
-	no_num_found(str);
+	if (no_num_found(str) == 0)
+		return (1);
 	while (len--)
 	{
 		i = 0;
