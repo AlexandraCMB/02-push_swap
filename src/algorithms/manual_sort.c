@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/14 16:04:33 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/19 12:10:28 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	sort(t_ps *data)
 	size_t	len;
 
 	len = data->size_of_list;
-	// printf("len is %ld\n",len);
 	if (len == 1)
 	{
 		free_all(data);

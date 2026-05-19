@@ -123,9 +123,14 @@ _Note: Performance averages are calculated using external bash script._
 
 To create program: `make` and then to run it with `./push_swap <your inputs>`.
 
-To run **z** numbers between **x** and **y** use:
+To run **z** positive integers between **x** and **y** use:
 ```
 ARG=$(shuf -i x-y -n z | tr '\n' ' ') ; ./push_swap $ARG | wc -l
+```
+
+To use negative numbers (for small numbers only - int overflow will happen - test these separately)
+```
+ARG=$(shuf -i x-y -n z | awk '{print $1 - a)' | tr '\n' ' ') ; ./push_swap $ARG | wc -l
 ```
 The output is the number of operations used to sort the list.
 # Resources
