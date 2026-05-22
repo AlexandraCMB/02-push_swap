@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/19 16:09:12 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/22 15:31:44 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	sort(t_ps *data)
 	size_t	len;
 
 	len = data->size_of_list;
-	if (len == 1 || list_not_in_order(data) == 1)
+	if (len == 1 || list_not_in_order(data) == 0)
 	{
 		free_all(data);
 		exit_message(0);
 	}
-	if (len == 2)
+	else if (len == 2)
 	{
 		if (data->stack_a->num > data->stack_a->next->num)
 			swap_a(data);
@@ -123,12 +123,12 @@ static int	list_not_in_order(t_ps *data)
 	int	i;
 
 	i = data->size_of_list;
-	while (i > 0)
+	while (i > 1)
 	{
 		if (data->stack_a->idx > data->stack_a->next->idx)
 			return (1);
 		data->stack_a = data->stack_a->next;
-		i++;
+		i--;
 	}
 	return (0);
 }
