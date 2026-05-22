@@ -40,7 +40,6 @@ void	sort(t_ps *data)
 	return ;
 }
 
-//Sorting three numbers in A
 void	sort_three(t_ps *data)
 {
 	int	first;
@@ -117,6 +116,7 @@ void	sort_four(t_ps *data)
 	return ;
 }
 
+//Checking list is in order - return 1 if not
 static int	list_not_in_order(t_ps *data)
 {
 	int		i;
