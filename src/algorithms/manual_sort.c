@@ -6,7 +6,7 @@
 /*   By: abrunjes <abrunjes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 10:55:54 by abrunjes          #+#    #+#             */
-/*   Updated: 2026/05/22 15:31:44 by abrunjes         ###   ########.fr       */
+/*   Updated: 2026/05/22 16:43:10 by abrunjes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,14 +120,16 @@ void	sort_four(t_ps *data)
 
 static int	list_not_in_order(t_ps *data)
 {
-	int	i;
+	int		i;
+	t_node	*tmp;
 
 	i = data->size_of_list;
+	tmp = data->stack_a;
 	while (i > 1)
 	{
-		if (data->stack_a->idx > data->stack_a->next->idx)
+		if (tmp->idx > tmp->next->idx)
 			return (1);
-		data->stack_a = data->stack_a->next;
+		tmp = tmp->next;
 		i--;
 	}
 	return (0);
