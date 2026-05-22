@@ -14,7 +14,6 @@
 
 static int	list_not_in_order(t_ps *data);
 
-//Sorting two numbers in A
 void	sort(t_ps *data)
 {
 	size_t	len;
